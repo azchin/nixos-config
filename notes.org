@@ -1,0 +1,19 @@
+* How to modularize
+Private stuff in a submodule?
+- hardware
+  - partitions
+  - boot params, amdgpu
+- machine specific
+  - hostname
+  - timezone
+  - monitor dpi
+  - theming
+- programs
+  - user stuff
+  - configured stuff (e.g. steam)
+  - fonts
+  - awesomewm override
+  - system packages
+- extra stuff
+  - wireguard
+  - fcitx
