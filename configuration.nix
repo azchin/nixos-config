@@ -232,6 +232,7 @@
       libva-utils
       glxinfo
       gnupg
+      pinentry
       # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
       # CLI tools end here
     ];
@@ -242,6 +243,11 @@
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;
+  programs.gnupg.agent = {
+    # NOTE touch ~/.gnupg/gpg-agent.conf and mkdir ~/.local/share/gnupg mode 700
+    enable = true;
+    pinentryPackage = pkgs.pinentry-tty;
+  };
 
   programs.steam = {
     enable = true;
