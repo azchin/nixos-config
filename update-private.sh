@@ -7,4 +7,3 @@ gpg -c private.tar.gz
 git add private.tar.gz.gpg
 git commit -m "x private archive"
 rm private.tar.gz
-git add private
