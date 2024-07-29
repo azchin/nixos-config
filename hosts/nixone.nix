@@ -6,38 +6,38 @@
   };
   
   config = lib.mkIf config.nixone.enable {
-    nixoneHardware.enable = true;
+    # Define your hostname.
+    networking.hostName = "nixone";
+
+    # Set your time zone.
+    time.timeZone = "America/New_York";
+
+    # Configure custom modules
     myDesktop.enable = true;
-    
-    # Custom modules
+    myVPN = {
+      enable = true;
+      dnsOnly = false;
+    };
     myX11 = {
       enable = true;
       dpi = 144;
       cursorSize = 36;
     };
-    myVPN = {
-      enable = true;
-      dnsOnly = false;
-    };
     myGaming.enable = true;
     
-    # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    # Hardware configuration
+    nixoneHardware.enable = true;
 
-    networking.hostName = "nixone"; # Define your hostname.
+    # Bootloader
+    myEFI.enable = true;
 
-    # Set your time zone.
-    time.timeZone = "America/New_York";
-
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
+    # Graphics
+    myAmdgpu.enable = true;
+    
+    # Install programs specific for this host
     environment.systemPackages = with pkgs; [
-      # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      efibootmgr
       btrfs-progs
       ntfs3g
     ];
-
   };
 }
