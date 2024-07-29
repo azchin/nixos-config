@@ -2,16 +2,25 @@
 
 {
   options = {
-    nixoneMain.enable = lib.mkEnableOption "nixoneMain";
+    myX11.enable = lib.mkEnableOption "myX11";
+    myX11.dpi = lib.mkOption {
+      type = lib.types.int;
+      default = 96;
+      description = "X11 DPI";
+    };
+    myX11.cursorSize = lib.mkOption {
+      type = lib.types.int;
+      default = 24;
+      description = "Cursor size";
+    };
   };
   
-  config = lib.mkIf config.nixoneMain.enable {
-    networking.hostName = "nixone"; # Define your hostname.
-
+  config = lib.mkIf config.myX11.enable {
+    # TODO figure out dpi and cursor size config variable
     # Enable the X11 windowing system.
     services.xserver = {
         enable = true;
-        dpi = 144;
+        dpi = config.myX11.dpi;
         upscaleDefaultCursor = true;
         autoRepeatInterval = 25;
         autoRepeatDelay = 400;
@@ -30,7 +39,7 @@
       cursorTheme = {
         name = "capitaine-cursors-white";
         package = pkgs.capitaine-cursors;
-        size = 36;
+        size = config.myX11.cursorSize;
       };
       indicators = [
         "~host"
@@ -42,7 +51,7 @@
         "~power"
       ];
       clock-format = "%F %T %Z";
-      extraConfig = "xft-dpi=144\n";
+      extraConfig = "xft-dpi=${toString config.myX11.dpi}\n";
     };
 
     services.xserver = {
@@ -107,11 +116,8 @@
     # NOTE still need to set up .xprofile and xrdb
     environment.variables = {
       XCURSOR_THEME = "capitaine-cursors-white";
-      XCURSOR_SIZE = "36";
-      GTK_IM_MODULE = "fcitx";
-      QT_IM_MODULE = "fcitx";
-      XMODIFIERS = "@im=fcitx";
-      MOZ_ENABLE_WAYLAND = 0;
+      XCURSOR_SIZE = "${toString config.myX11.cursorSize}";
+      # MOZ_ENABLE_WAYLAND = 0;
     };
   };
 }

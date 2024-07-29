@@ -30,6 +30,14 @@
         localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
       };
       hardware.graphics.enable32Bit = true;
+      environment.systemPackages = with pkgs; [
+        (lutris.override {
+          extraPkgs = pkgs: [
+            wineWowPackages.stable
+          ];
+        })
+        wineWowPackages.stable
+      ];
     })
     (lib.mkIf config.myFcitx.enable {
       i18n.inputMethod = {
@@ -42,6 +50,11 @@
             kdePackages.fcitx5-chinese-addons
           ];
         };
+      };
+      environment.variables = {
+        GTK_IM_MODULE = "fcitx";
+        QT_IM_MODULE = "fcitx";
+        XMODIFIERS = "@im=fcitx";
       };
     })
   ];
