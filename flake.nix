@@ -30,13 +30,11 @@
     nixosConfigurations = {
       nixone = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit pkgs pkgs-stable; };
-        modules = [
-          ./modules/default.nix
-          ./private/default.nix
-          ./profiles/default.nix
-          ./hosts/default.nix
-          ./configuration.nix
-        ];
+        modules = [ ./hosts/nixone.nix ];
+      };
+      nixtwo = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pkgs pkgs-stable; };
+        modules = [ ./hosts/nixtwo.nix ];
       };
     };
   };

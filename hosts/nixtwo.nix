@@ -6,7 +6,7 @@
   ];
 
   # Define your hostname.
-  networking.hostName = "nixone";
+  networking.hostName = "nixtwo";
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -14,7 +14,7 @@
   # Configure custom modules
   myDesktop.enable = true;
   myVPN = {
-    enable = true;
+    enable = false;
     dnsOnly = false;
   };
   myX11 = {
@@ -22,22 +22,19 @@
     dpi = 144;
     cursorSize = 36;
   };
-  myGaming.enable = true;
+  myGaming.enable = false;
   
   # Hardware configuration
-  nixoneHardware.enable = true;
+  nixtwoHardware.enable = true;
 
   # Bootloader
   myEFI.enable = true;
 
-  # Graphics
-  myAmdgpu.enable = true;
-  
-  # Install programs specific for this host
-  environment.systemPackages = with pkgs; [
-    btrfs-progs
-    ntfs3g
-  ];
+  # TODO Graphics
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  # Install programs specific for this host
+  # environment.systemPackages = with pkgs; [
+  # ];
+
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

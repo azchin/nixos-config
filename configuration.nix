@@ -5,8 +5,11 @@
 { config, lib, pkgs, pkgs-stable, ... }:
 
 {
-  # Host config
-  nixone.enable = true;
+  imports = [
+    ./modules/default.nix
+    ./private/default.nix
+    ./profiles/default.nix
+  ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -56,7 +59,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
 
