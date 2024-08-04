@@ -6,14 +6,70 @@
   };
   
   config = lib.mkIf config.myDesktop.enable {
-    # Pick only one of the below networking options.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
+    # Packages
+    users.users.andrew.packages = with pkgs; [
+      alacritty
+      sshfs
+      neovide
+      keepassxc
+      nextcloud-client
+      guvcview
+      nsxiv
+      mpv
+      yt-dlp
+      ffmpeg
+      imagemagick
+      transmission_4-gtk
+      hunspell
+      hunspellDicts.en-us
+      hunspellDicts.en-ca
+      yubikey-manager
+      profile-sync-daemon
+      brave
+      signal-desktop
+      audacity
+      zotero
+      slack
+      spotify
+      mprime
+      lm_sensors
+      cpu-x
+      pavucontrol
+      # CLI tools start here
+      neofetch
+      ncdu
+      psmisc
+      tree
+      bc
+      git
+      tmux
+      ripgrep
+      fd
+      tealdeer
+      htop
+      gcc
+      pciutils
+      libva-utils
+      glxinfo
+      gnupg
+      pinentry
+      zip
+      unzip
+      cmake
+      # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
+      cargo
+      rustc
+      # CLI tools end here
+    ];
+    
     # Custom modules
     myX11.enable = lib.mkDefault true;
     myFirefox.enable = lib.mkDefault true;
     myFcitx.enable = lib.mkDefault true;
+
+    # Pick only one of the below networking options.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
@@ -89,53 +145,6 @@
       group = "andrew";
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       shell = pkgs.zsh;
-      packages = with pkgs; [
-        alacritty
-        sshfs
-        neovide
-        keepassxc
-        nextcloud-client
-        guvcview
-        nsxiv
-        mpv
-        yt-dlp
-        ffmpeg
-        imagemagick
-        transmission_4-gtk
-        hunspell
-        hunspellDicts.en-us
-        hunspellDicts.en-ca
-        yubikey-manager
-        profile-sync-daemon
-        brave
-        signal-desktop
-        audacity
-        zotero
-        slack
-        spotify
-        # stremio
-        pavucontrol
-        # CLI tools start here
-        neofetch
-        ncdu
-        psmisc
-        tree
-        bc
-        git
-        tmux
-        ripgrep
-        fd
-        tealdeer
-        htop
-        gcc
-        pciutils
-        libva-utils
-        glxinfo
-        gnupg
-        pinentry
-        # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
-        # CLI tools end here
-      ];
     };
 
     xdg.mime.enable = true;
