@@ -9,6 +9,7 @@ case $cmd in
         sudo nixos-rebuild boot --flake . || :
         ;;
     upgrade)
+        echo "Upgrading!"
         sudo nixos-rebuild switch --upgrade --flake . || :
         ;;
     switch)
