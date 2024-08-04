@@ -24,7 +24,6 @@
       hunspellDicts.en-us
       hunspellDicts.en-ca
       yubikey-manager
-      profile-sync-daemon
       brave
       signal-desktop
       audacity
@@ -35,6 +34,8 @@
       lm_sensors
       cpu-x
       pavucontrol
+      geekbench
+      linuxPackages.cpupower
       # CLI tools start here
       neofetch
       ncdu
@@ -56,12 +57,54 @@
       zip
       unzip
       cmake
+      ninja
+      python3
       # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
       cargo
       rustc
       # CLI tools end here
     ];
     
+    services.psd.enable = true;
+    services.transmission = {
+      enable = true;
+      package = pkgs.transmission_4;
+      openPeerPorts = true;
+    };
+  
+    fonts.packages = with pkgs; [
+      dejavu_fonts
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      (nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
+    ];
+    fonts.enableDefaultPackages = true;
+
+    xdg.mime.enable = true;
+    xdg.menus.enable = true;
+    xdg.sounds.enable = false;
+
+    programs.zsh.enable = true;
+    programs.dconf.enable = true;
+    programs.gnupg.agent = {
+      # NOTE touch ~/.gnupg/gpg-agent.conf and mkdir ~/.local/share/gnupg mode 700
+      enable = true;
+      pinentryPackage = pkgs.pinentry-tty;
+    };
+
+    hardware.graphics.enable = true;
+
+    # Enable sound.
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+
+    # Enable touchpad support (enabled default in most desktopManager).
+    services.libinput.enable = true;
+  
     # Custom modules
     myX11.enable = lib.mkDefault true;
     myFirefox.enable = lib.mkDefault true;
@@ -70,6 +113,19 @@
     # Pick only one of the below networking options.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+    users.groups.andrew.gid = 1000;
+  
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.andrew = {
+      isNormalUser = true;
+      uid = 1000;
+      group = "andrew";
+      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      shell = pkgs.zsh;
+    };
+
+    security.sudo.wheelNeedsPassword = false;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
@@ -105,61 +161,6 @@
 
     # Enable CUPS to print documents.
     # services.printing.enable = true;
-
-    # Enable sound.
-    # hardware.pulseaudio.enable = true;
-    # OR
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    hardware.graphics.enable = true;
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    services.libinput.enable = true;
-    services.psd.enable = true;
-
-    services.transmission = {
-      enable = true;
-      package = pkgs.transmission_4;
-      openPeerPorts = true;
-    };
-  
-    fonts.packages = with pkgs; [
-      dejavu_fonts
-      noto-fonts-cjk-serif
-      noto-fonts-cjk-sans
-      (nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
-    ];
-    fonts.enableDefaultPackages = true;
-  
-    users.groups.andrew.gid = 1000;
-  
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.andrew = {
-      isNormalUser = true;
-      uid = 1000;
-      group = "andrew";
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      shell = pkgs.zsh;
-    };
-
-    xdg.mime.enable = true;
-    xdg.menus.enable = true;
-    xdg.sounds.enable = false;
-
-    programs.zsh.enable = true;
-    programs.dconf.enable = true;
-    programs.gnupg.agent = {
-      # NOTE touch ~/.gnupg/gpg-agent.conf and mkdir ~/.local/share/gnupg mode 700
-      enable = true;
-      pinentryPackage = pkgs.pinentry-tty;
-    };
-
-    security.sudo.wheelNeedsPassword = false;
 
     # TODO kwallet after NixOS fixes PAM https://github.com/NixOS/nixpkgs/issues/258296
   

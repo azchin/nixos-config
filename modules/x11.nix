@@ -16,7 +16,6 @@
   };
   
   config = lib.mkIf config.myX11.enable {
-    # TODO figure out dpi and cursor size config variable
     # Enable the X11 windowing system.
     services.xserver = {
         enable = true;
