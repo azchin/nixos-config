@@ -2,10 +2,10 @@
 
 {
   options = {
-    myDesktop.enable = lib.mkEnableOption "myDesktop";
+    andrew.enable = lib.mkEnableOption "andrew";
   };
   
-  config = lib.mkIf config.myDesktop.enable {
+  config = lib.mkIf config.andrew.enable {
     # Packages
     users.users.andrew.packages = with pkgs; [
       alacritty
@@ -39,6 +39,9 @@
       cpu-x
       geekbench
       linuxPackages.cpupower
+      cbatticon
+      # CLI tools start here
+      neofetch
       ncdu
       psmisc
       pciutils
@@ -66,6 +69,11 @@
       rustc
       # CLI tools end here
     ];
+  
+    # Custom modules
+    myX11.enable = lib.mkDefault true;
+    myFirefox.enable = lib.mkDefault true;
+    myFcitx.enable = lib.mkDefault true;
     
     services.psd.enable = true;
     services.transmission = {
@@ -106,11 +114,6 @@
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.libinput.enable = true;
-  
-    # Custom modules
-    myX11.enable = lib.mkDefault true;
-    myFirefox.enable = lib.mkDefault true;
-    myFcitx.enable = lib.mkDefault true;
 
     # Pick only one of the below networking options.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

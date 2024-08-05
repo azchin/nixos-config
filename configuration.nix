@@ -8,7 +8,7 @@
   imports = [
     ./modules/default.nix
     ./private/default.nix
-    ./profiles/default.nix
+    ./targets/default.nix
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
