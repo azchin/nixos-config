@@ -6,9 +6,6 @@
   };
   
   config = lib.mkIf config.myAmdgpu.enable {
-    # Early load
-    hardware.amdgpu.initrd.enable = true;
-  
     # Overclock
     boot.extraModprobeConfig = ''
       options amdgpu ppfeaturemask=0xfffd7fff

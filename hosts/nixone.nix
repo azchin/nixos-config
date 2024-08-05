@@ -39,8 +39,5 @@
     ntfs3g
   ];
 
-  boot.blacklistedKernelModules = [ "k10temp" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
-
   system.stateVersion = "24.05"; # Did you read the comment?
 }

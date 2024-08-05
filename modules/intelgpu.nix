@@ -6,17 +6,8 @@
   };
   
   config = lib.mkIf config.myIntelgpu.enable {
-    hardware.graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        linux-firmware
-      ];
-      extraPackages32 = with pkgs; [
-        intel-media-driver
-        linux-firmware
-      ];
-    };
+    hardware.graphics.enable = true;
+
     environment.systemPackages = with pkgs; [
       intel-gpu-tools
     ];
