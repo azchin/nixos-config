@@ -12,7 +12,7 @@
   time.timeZone = "America/New_York";
 
   # Configure custom modules
-  myDesktop.enable = true;
+  myLaptop.enable = true;
   myVPN = {
     enable = false;
     dnsOnly = false;
@@ -30,7 +30,8 @@
   # Bootloader
   myEFI.enable = true;
 
-  # TODO Graphics
+  # Graphics
+  myIntelgpu.enable = true;
 
   # Install programs specific for this host
   # environment.systemPackages = with pkgs; [

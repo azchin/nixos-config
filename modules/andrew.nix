@@ -39,7 +39,6 @@
       cpu-x
       geekbench
       linuxPackages.cpupower
-      cbatticon
       # CLI tools start here
       neofetch
       ncdu

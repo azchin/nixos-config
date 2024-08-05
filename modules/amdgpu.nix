@@ -14,6 +14,8 @@
       options amdgpu ppfeaturemask=0xfffd7fff
     '';
     
+    hardware.graphics.enable = true;
+    
     environment.systemPackages = with pkgs; [
       amdgpu_top
     ];
