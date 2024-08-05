@@ -13,5 +13,9 @@
     boot.extraModprobeConfig = ''
       options amdgpu ppfeaturemask=0xfffd7fff
     '';
+    
+    environment.systemPackages = with pkgs; [
+      amdgpu_top
+    ];
   };
 }

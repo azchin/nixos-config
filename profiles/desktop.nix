@@ -30,16 +30,22 @@
       zotero
       slack
       spotify
+      pavucontrol
+      libreoffice-fresh
+      # System utilities
+      htop
       mprime
       lm_sensors
       cpu-x
-      pavucontrol
       geekbench
       linuxPackages.cpupower
-      # CLI tools start here
-      neofetch
       ncdu
       psmisc
+      pciutils
+      libva-utils
+      glxinfo
+      # CLI tools start here
+      neofetch
       tree
       bc
       git
@@ -47,11 +53,7 @@
       ripgrep
       fd
       tealdeer
-      htop
       gcc
-      pciutils
-      libva-utils
-      glxinfo
       gnupg
       pinentry
       zip
