@@ -1,78 +1,94 @@
 { config, lib, pkgs, pkgs-stable, ... }:
 
-{
-  options = {
-    andrew.enable = lib.mkEnableOption "andrew";
+with lib; {
+  options = with types; {
+    myUser.enable = mkEnableOption "myUser";
+    myUser.primary.name = mkOption {
+      type = str;
+      description = "Name of the primary user";  
+      default = "andrew";
+    };
+    myUser.primary.extraPackages = mkOption {
+      type = listOf package;
+      description = "Primary user's extra packages";  
+      default = [];
+    };
   };
   
-  config = lib.mkIf config.andrew.enable {
-    # Packages
-    users.users.andrew.packages = with pkgs; [
-      alacritty
-      sshfs
-      neovide
-      keepassxc
-      nextcloud-client
-      guvcview
-      nsxiv
-      mpv
-      yt-dlp
-      ffmpeg
-      imagemagick
-      transmission_4-gtk
-      hunspell
-      hunspellDicts.en-us
-      hunspellDicts.en-ca
-      yubikey-manager
-      brave
-      signal-desktop
-      audacity
-      zotero
-      slack
-      spotify
-      pavucontrol
-      libreoffice-fresh
-      # System utilities
-      htop
-      mprime
-      lm_sensors
-      cpu-x
-      geekbench
-      linuxPackages.cpupower
-      # CLI tools start here
-      neofetch
-      ncdu
-      psmisc
-      pciutils
-      libva-utils
-      glxinfo
-      # CLI tools start here
-      neofetch
-      tree
-      bc
-      git
-      tmux
-      ripgrep
-      fd
-      tealdeer
-      gcc
-      gnupg
-      pinentry
-      zip
-      unzip
-      cmake
-      ninja
-      python3
-      # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
-      cargo
-      rustc
-      # CLI tools end here
-    ];
-  
+  config = mkIf config.myUser.enable {
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.${config.myUser.primary.name} = {
+      isNormalUser = true;
+      uid = 1000;
+      group = config.myUser.primary.name;
+      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      shell = pkgs.zsh;
+      packages = with pkgs; [
+        alacritty
+        sshfs
+        neovide
+        keepassxc
+        nextcloud-client
+        guvcview
+        nsxiv
+        mpv
+        yt-dlp
+        ffmpeg
+        imagemagick
+        transmission_4-gtk
+        hunspell
+        hunspellDicts.en-us
+        hunspellDicts.en-ca
+        yubikey-manager
+        brave
+        signal-desktop
+        audacity
+        zotero
+        slack
+        spotify
+        pavucontrol
+        libreoffice-fresh
+        # System utilities
+        htop
+        mprime
+        lm_sensors
+        cpu-x
+        linuxPackages.cpupower
+        # CLI tools start here
+        neofetch
+        ncdu
+        psmisc
+        pciutils
+        libva-utils
+        glxinfo
+        # CLI tools start here
+        neofetch
+        tree
+        bc
+        git
+        tmux
+        ripgrep
+        fd
+        tealdeer
+        gcc
+        gnupg
+        pinentry
+        zip
+        unzip
+        cmake
+        ninja
+        python3
+        # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
+        cargo
+        rustc
+        # CLI tools end here
+      ] ++ config.myUser.primary.extraPackages;
+    };
+
     # Custom modules
-    myX11.enable = lib.mkDefault true;
-    myFirefox.enable = lib.mkDefault true;
-    myFcitx.enable = lib.mkDefault true;
+    myX11.enable = mkDefault true;
+    myFirefox.enable = mkDefault true;
+    myFcitx.enable = mkDefault true;
     
     services.psd.enable = true;
     services.transmission = {
@@ -118,17 +134,8 @@
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-    users.groups.andrew.gid = 1000;
+    users.groups.${config.myUser.primary.name}.gid = 1000;
   
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.andrew = {
-      isNormalUser = true;
-      uid = 1000;
-      group = "andrew";
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      shell = pkgs.zsh;
-    };
-
     security.sudo.wheelNeedsPassword = false;
 
     # Configure network proxy if necessary

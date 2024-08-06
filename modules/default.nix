@@ -7,6 +7,6 @@
     ./amdgpu.nix
     ./intelgpu.nix
     ./efi.nix
-    ./andrew.nix
+    ./users.nix
   ];
 }

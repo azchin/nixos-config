@@ -6,6 +6,9 @@
   };
   
   config = lib.mkIf config.myDesktop.enable {
-    andrew.enable = true;
+    myUser.enable = true;
+    myUser.primary.extraPackages = with pkgs; [
+      geekbench
+    ];
   };
 }

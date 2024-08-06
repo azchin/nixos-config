@@ -6,9 +6,8 @@
   };
   
   config = lib.mkIf config.myLaptop.enable {
-    andrew.enable = true;
-    # TODO make extra packages a config option in andrew
-    users.users.andrew.packages = with pkgs; [
+    myUser.enable = true;
+    myUser.primary.extraPackages = with pkgs; [
       cbatticon
     ];
     powerManagement.powertop.enable = true;

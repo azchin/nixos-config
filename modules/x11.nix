@@ -77,7 +77,7 @@
 
     services.gvfs.enable = true;
 
-    users.users.andrew = {
+    users.users.${config.myUser.primary.name} = {
       packages = with pkgs; [
         emacs-gtk
         xorg.xrdb

@@ -16,6 +16,7 @@
         boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
         myVPN.enable = lib.mkForce false;
         myGaming.enable = lib.mkForce false;
+        services.auto-cpufreq.enable = lib.mkForce false;
       };
     };
     gaming.configuration = {
