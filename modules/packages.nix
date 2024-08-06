@@ -59,6 +59,8 @@ with lib; {
       spotify
       pavucontrol
       libreoffice-fresh
+      kdePackages.okular
+      kdePackages.korganizer
       # System utilities
       mprime
       lm_sensors

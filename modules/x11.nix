@@ -102,7 +102,6 @@
       capitaine-cursors
       kdePackages.breeze
       libsForQt5.breeze-qt5
-      kdePackages.okular
       kdePackages.oxygen-icons
       pcmanfm
       lxmenu-data
