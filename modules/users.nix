@@ -22,6 +22,8 @@ with lib; {
     };
 
     users.groups.${config.myUser.primary}.gid = 1000;
+
+    programs.zsh.enable = true;
   
     security.sudo.wheelNeedsPassword = false;
   };

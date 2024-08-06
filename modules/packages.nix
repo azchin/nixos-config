@@ -25,8 +25,6 @@ with lib; {
       tealdeer
       ncdu
       psmisc
-      gnupg
-      pinentry
       zip
       unzip
       gcc
@@ -91,11 +89,51 @@ with lib; {
     ];
     fonts.enableDefaultPackages = true;
 
-    xdg.mime.enable = true;
+    xdg.icons.enable = true;
     xdg.menus.enable = true;
     xdg.sounds.enable = false;
+    xdg.mime = {
+      enable = true; 
+      defaultApplications = {
+        "application/pdf" = "org.kde.okular.desktop";
+        "text/plain" = [ "emacs-client.desktop" "emacs.desktop" ];
+        "text/markdown" = [ "emacs-client.desktop" "emacs.desktop" ];
+        "image/png" = "nsxiv.desktop";
+        "image/jpeg" = "nsxiv.desktop";
+        "image/svg+xml" = "nsxiv.desktop";
+        "image/apng" = "nsxiv.desktop";
+        "image/avif" = "nsxiv.desktop";
+        "image/bmp" = "nsxiv.desktop";
+        "image/vnd.microsoft.icon" = "nsxiv.desktop";
+        "image/tiff" = "nsxiv.desktop";
+        "image/webp" = "nsxiv.desktop";
+        "audio/aac" = "mpv.desktop";
+        "audio/midi" = "mpv.desktop";
+        "audio/x-midi" = "mpv.desktop";
+        "audio/mpeg" = "mpv.desktop";
+        "audio/ogg" = "mpv.desktop";
+        "audio/wav" = "mpv.desktop";
+        "audio/webm" = "mpv.desktop";
+        "audio/3gpp" = "mpv.desktop";
+        "audio/3gpp2" = "mpv.desktop";
+        "video/x-msvideo" = "mpv.desktop";
+        "video/mp4" = "mpv.desktop";
+        "video/mpeg" = "mpv.desktop";
+        "video/ogg" = "mpv.desktop";
+        "video/mp2t" = "mpv.desktop";
+        "video/webm" = "mpv.desktop";
+        "video/3gpp" = "mpv.desktop";
+        "video/3gpp2" = "mpv.desktop";
+      };
+    };
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+      config.common.default = "gtk";
+    };
 
-    programs.zsh.enable = true;
     programs.dconf.enable = true;
     programs.gnupg.agent = {
       # NOTE touch ~/.gnupg/gpg-agent.conf and mkdir ~/.local/share/gnupg mode 700

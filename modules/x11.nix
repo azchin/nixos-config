@@ -85,6 +85,8 @@
       xclip
       dunst
       picom
+      rofi
+      dmenu
       networkmanagerapplet
       xss-lock
       xsecurelock
