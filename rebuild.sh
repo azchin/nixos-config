@@ -29,4 +29,8 @@ case $cmd in
         sudo nixos-rebuild $cmd --flake . || restore_git_exit
         restore_git
         ;;
+    bootloader)
+        sudo nixos-rebuild switch --install-bootloader --flake . || restore_git_exit
+        restore_git
+        ;;
 esac
