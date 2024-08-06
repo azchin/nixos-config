@@ -82,7 +82,11 @@
       xorg.xrdb
       xorg.xset
       xorg.xsetroot
+      xorg.xev
+      xorg.xmodmap
+      xorg.setxkbmap
       xclip
+      dex # TODO add to autostart.sh, split across hosts
       dunst
       picom
       rofi
