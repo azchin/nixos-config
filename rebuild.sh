@@ -15,5 +15,11 @@ case $cmd in
     switch)
         sudo nixos-rebuild switch --flake . || :
         ;;
+    test)
+        sudo nixos-rebuild test --flake . || :
+        ;;
+    build)
+        sudo nixos-rebuild build --flake . || :
+        ;;
 esac
 git restore --staged private

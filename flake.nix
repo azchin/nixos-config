@@ -31,23 +31,12 @@
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
     nixosConfigurations = {
       nixone = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs pkgs-stable; };
-        modules = [
-          ./hosts/nixone.nix
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-cpu-amd-pstate
-          nixos-hardware.nixosModules.common-cpu-amd-zenpower
-          nixos-hardware.nixosModules.common-gpu-amd
-          nixos-hardware.nixosModules.common-pc-ssd
-          nixos-hardware.nixosModules.common-hidpi
-        ];
+        specialArgs = { inherit pkgs pkgs-stable nixos-hardware; };
+        modules = [ ./hosts/nixone ];
       };
       nixtwo = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs pkgs-stable; };
-        modules = [
-          ./hosts/nixtwo.nix
-          nixos-hardware.nixosModules.framework-11th-gen-intel
-        ];
+        specialArgs = { inherit pkgs pkgs-stable nixos-hardware; };
+        modules = [ ./hosts/nixtwo ];
       };
     };
   };

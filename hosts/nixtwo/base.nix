@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../configuration.nix
+    ../../configuration.nix
   ];
 
   # Define your hostname.

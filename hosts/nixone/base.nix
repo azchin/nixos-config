@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../configuration.nix
+    ../../configuration.nix
   ];
 
   # Define your hostname.
@@ -26,6 +26,7 @@
   
   # Hardware configuration
   nixoneHardware.enable = true;
+  nixoneHardwareExtra.enable = true;
 
   # Bootloader
   myEFI.enable = true;
