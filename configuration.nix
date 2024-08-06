@@ -20,6 +20,8 @@
     options = "--delete-older-than 7d";
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
