@@ -77,33 +77,31 @@
 
     services.gvfs.enable = true;
 
-    users.users.${config.myUser.primary.name} = {
-      packages = with pkgs; [
-        emacs-gtk
-        xorg.xrdb
-        xorg.xset
-        xorg.xsetroot
-        xclip
-        dunst
-        picom
-        networkmanagerapplet
-        xss-lock
-        xsecurelock
-        playerctl
-        pamixer
-        maim
-        arc-theme
-        papirus-icon-theme
-        capitaine-cursors
-        kdePackages.breeze
-        libsForQt5.breeze-qt5
-        kdePackages.okular
-        kdePackages.oxygen-icons
-        pcmanfm
-        lxmenu-data
-        shared-mime-info
-      ];
-    };
+    myPackages = with pkgs; [
+      emacs-gtk
+      xorg.xrdb
+      xorg.xset
+      xorg.xsetroot
+      xclip
+      dunst
+      picom
+      networkmanagerapplet
+      xss-lock
+      xsecurelock
+      playerctl
+      pamixer
+      maim
+      arc-theme
+      papirus-icon-theme
+      capitaine-cursors
+      kdePackages.breeze
+      libsForQt5.breeze-qt5
+      kdePackages.okular
+      kdePackages.oxygen-icons
+      pcmanfm
+      lxmenu-data
+      shared-mime-info
+    ];
 
     qt = {
       enable = true;

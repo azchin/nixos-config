@@ -7,7 +7,8 @@
   
   config = lib.mkIf config.myLaptop.enable {
     myUser.enable = true;
-    myUser.primary.extraPackages = with pkgs; [
+    myGraphical.enable = true;
+    myPackages = with pkgs; [
       cbatticon
     ];
     powerManagement.powertop.enable = true;

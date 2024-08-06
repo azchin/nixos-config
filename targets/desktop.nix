@@ -7,7 +7,8 @@
   
   config = lib.mkIf config.myDesktop.enable {
     myUser.enable = true;
-    myUser.primary.extraPackages = with pkgs; [
+    myGraphical.enable = true;
+    myPackages = with pkgs; [
       geekbench
     ];
   };

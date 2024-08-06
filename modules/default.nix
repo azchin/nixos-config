@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./packages.nix
     ./x11.nix
     ./programs.nix
     ./amdgpu.nix
