@@ -103,6 +103,7 @@
       pcmanfm
       lxmenu-data
       shared-mime-info
+      arandr
     ];
 
     qt = {

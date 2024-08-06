@@ -2,15 +2,31 @@
 set -eu
 dir=$(dirname $(realpath $0))
 cmd="${1:-switch}"
+
+restore_git() {
+    git restore --staged private
+}
+
+restore_git_exit() {
+    restore_git || :
+    exit 1
+}
+
 cd $dir
+
 git add private
+
 case $cmd in
     upgrade)
         echo "Upgrading!"
-        sudo nixos-rebuild switch --upgrade --flake . || :
+        nix flake update
+        sudo nixos-rebuild switch --upgrade --flake . || restore_git_exit
+        restore_git
+        git add flake.lock
+        git commit -m "x nix flake" || echo "flake.lock not updated"
         ;;
     switch|boot|test|build)
-        sudo nixos-rebuild $cmd --flake . || :
+        sudo nixos-rebuild $cmd --flake . || restore_git_exit
+        restore_git
         ;;
 esac
-git restore --staged private

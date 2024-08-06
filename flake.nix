@@ -12,9 +12,7 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      config = {
-        allowUnfree = true;
-      };
+      config.allowUnfree = true;
       overlays = [
         (final: prev: {
           awesome = prev.awesome.override { gtk3Support = true; };
@@ -23,9 +21,7 @@
     };
     pkgs-stable = import nixpkgs-stable {
       inherit system;
-      config = {
-        allowUnfree = true;
-      };
+      config.allowUnfree = true;
     };
   in {
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
