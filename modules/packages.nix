@@ -12,6 +12,31 @@ with lib; {
   
   config = mkIf config.myGraphical.enable {
     myPackages = with pkgs; [
+      # CLI tools start here
+      htop
+      neofetch
+      tree
+      bc
+      file
+      git
+      tmux
+      ripgrep
+      fd
+      tealdeer
+      ncdu
+      psmisc
+      gnupg
+      pinentry
+      zip
+      unzip
+      gcc
+      cmake
+      ninja
+      python3
+      # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
+      cargo
+      rustc
+      # Graphical apps
       alacritty
       sshfs
       neovide
@@ -37,37 +62,13 @@ with lib; {
       pavucontrol
       libreoffice-fresh
       # System utilities
-      htop
       mprime
       lm_sensors
       cpu-x
       linuxPackages.cpupower
-      ncdu
-      psmisc
       pciutils
       libva-utils
       glxinfo
-      # CLI tools start here
-      neofetch
-      tree
-      bc
-      git
-      tmux
-      ripgrep
-      fd
-      tealdeer
-      gcc
-      gnupg
-      pinentry
-      zip
-      unzip
-      cmake
-      ninja
-      python3
-      # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
-      cargo
-      rustc
-      # CLI tools end here
     ];
 
     # Custom modules
