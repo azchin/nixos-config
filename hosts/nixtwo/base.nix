@@ -19,7 +19,7 @@
   };
   myX11 = {
     enable = true;
-    dpi = 144;
+    dpi = 138; # TODO sync Xresources? home manager?
     cursorSize = 36;
   };
   myGaming.enable = false;
