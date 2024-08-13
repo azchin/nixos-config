@@ -19,5 +19,16 @@
         myAmdgpu.enable = lib.mkForce false;
       };
     };
+    server = {
+      inheritParentConfig = false;
+      configuration = {
+        imports = [
+          ./base.nix
+        ];
+        myGaming.enable = lib.mkForce false;
+        myX11.enable = lib.mkForce false;
+        nixoneNetwork.enable = lib.mkForce true;
+      };
+    };
   };
 }
