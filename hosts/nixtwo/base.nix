@@ -13,8 +13,8 @@
 
   # Configure custom modules
   myLaptop.enable = true;
-  myVPN = {
-    enable = false;
+  nixtwoNetwork = {
+    enable = true;
     dnsOnly = false;
   };
   myX11 = {

@@ -20,7 +20,6 @@
       };
     };
     gaming.configuration = {
-      myVPN.enable = lib.mkForce true;
       myGaming.enable = lib.mkForce true;
     };
   };

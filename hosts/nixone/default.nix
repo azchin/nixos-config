@@ -15,7 +15,6 @@
         ];
         boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
         nixoneHardwareExtra.enable = lib.mkForce false;
-        myVPN.enable = lib.mkForce false;
         myGaming.enable = lib.mkForce false;
         myAmdgpu.enable = lib.mkForce false;
       };

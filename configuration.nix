@@ -24,12 +24,12 @@
 
   programs.neovim = {
     enable = true;
-    vimAlias = true;
+    vimAlias = false;
     viAlias = true;
+    defaultEditor = true;
   };
-
-  environment.variables = {
-    EDITOR = "nvim";
+  programs.vim = {
+    enable = true;
   };
 
   # List packages installed in system profile. To search, run:

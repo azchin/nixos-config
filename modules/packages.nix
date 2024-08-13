@@ -60,7 +60,8 @@ with lib; {
       pavucontrol
       libreoffice-fresh
       kdePackages.okular
-      kdePackages.korganizer
+      calcurse
+      nvimpager
       # System utilities
       mprime
       lm_sensors

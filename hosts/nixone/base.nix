@@ -13,7 +13,7 @@
 
   # Configure custom modules
   myDesktop.enable = true;
-  myVPN = {
+  nixoneNetwork = {
     enable = true;
     dnsOnly = false;
   };
