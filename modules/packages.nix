@@ -27,6 +27,8 @@ with lib; {
       psmisc
       zip
       unzip
+      yq
+      jq
       gcc
       cmake
       ninja
@@ -36,7 +38,6 @@ with lib; {
       rustc
       # Graphical apps
       alacritty
-      sshfs
       neovide
       keepassxc
       nextcloud-client

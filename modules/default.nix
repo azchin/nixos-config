@@ -9,5 +9,6 @@
     ./intelgpu.nix
     ./efi.nix
     ./users.nix
+    ./logind.nix
   ];
 }
