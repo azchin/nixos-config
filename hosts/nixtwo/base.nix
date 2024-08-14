@@ -17,11 +17,9 @@
     enable = true;
     dnsOnly = false;
   };
-  myX11 = {
-    enable = true;
-    dpi = 138; # TODO sync Xresources? home manager?
-    cursorSize = 36;
-  };
+  myAwesomewm.enable = true;
+  myX11.dpi = 138;
+  myCursorSize = 36;
   myGaming.enable = false;
   
   # Hardware configuration

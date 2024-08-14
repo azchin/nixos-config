@@ -13,11 +13,6 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [
-        (final: prev: {
-          awesome = prev.awesome.override { gtk3Support = true; };
-        })
-      ];
     };
     pkgs-stable = import nixpkgs-stable {
       inherit system;

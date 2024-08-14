@@ -74,7 +74,6 @@ with lib; {
     ];
 
     # Custom modules
-    myX11.enable = mkDefault true;
     myFirefox.enable = mkDefault true;
     myFcitx.enable = mkDefault true;
     
