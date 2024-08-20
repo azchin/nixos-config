@@ -9,6 +9,7 @@
     myMinimal.enable = true;
 
     programs.hyprland.enable = true;
+    programs.hyprland.package = pkgs.hyprland.override { legacyRenderer = true; };
     programs.hyprlock.enable = true;
     services.hypridle.enable = true;
     programs.waybar.enable = true;
