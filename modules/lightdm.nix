@@ -9,8 +9,8 @@
     # Enable the X11 windowing system.
     services.xserver = {
       enable = true;
-      dpi = config.myX11.dpi;
-      upscaleDefaultCursor = true;
+      # dpi = config.myX11.dpi;
+      # upscaleDefaultCursor = true;
       autoRepeatInterval = 25;
       autoRepeatDelay = 400;
     };
