@@ -5,6 +5,7 @@
     ./packages.nix
     ./x11.nix
     ./lightdm.nix
+    ./ly.nix
     ./awesomewm.nix
     ./minimal.nix
     ./hypr.nix

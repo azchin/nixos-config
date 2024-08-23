@@ -17,14 +17,17 @@
     enable = true;
     dnsOnly = false;
   };
-  myAwesomewm.enable = true;
+  myHypr.enable = true;
   myX11.dpi = 96;
   myCursorSize = 36;
 
   services.xserver.xrandrHeads = [ 
     {
       output = "DP-2";
-      # monitorConfig = "DisplaySize 338 190\nOption \"LeftOf DP-3\"";
+      # DisplaySize 338 190\n
+      monitorConfig = ''
+        Option "LeftOf DP-1
+      '';
     }
     {
       output = "DP-1";
