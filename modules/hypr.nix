@@ -12,7 +12,6 @@
     programs.hyprland.enable = true;
     programs.hyprland.package = pkgs.hyprland.override { legacyRenderer = true; };
     programs.hyprlock.enable = true;
-    services.hypridle.enable = true;
 
     myPackages = with pkgs; [
       wl-clipboard
@@ -22,6 +21,8 @@
       slurp
       grim
       hyprcursor
+      hyprpaper
+      hypridle
       nwg-look
     ];
   };

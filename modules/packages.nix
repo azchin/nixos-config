@@ -31,8 +31,11 @@ with lib; {
       jq
       gcc
       cmake
+      gnumake
       ninja
       python3
+      man
+      man-pages
       # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
       cargo
       rustc
@@ -63,6 +66,11 @@ with lib; {
       kdePackages.okular
       calcurse
       nvimpager
+      # Security tools
+      ghidra
+      gdb
+      pwndbg
+      pwntools
       # System utilities
       mprime
       lm_sensors
