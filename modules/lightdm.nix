@@ -6,15 +6,6 @@
   };
   
   config = lib.mkIf config.myLightdm.enable {
-    # Enable the X11 windowing system.
-    services.xserver = {
-      enable = true;
-      # dpi = config.myX11.dpi;
-      # upscaleDefaultCursor = true;
-      autoRepeatInterval = 25;
-      autoRepeatDelay = 400;
-    };
-
     services.xserver.displayManager.lightdm.greeters.gtk = {
       enable = true;
       theme = {
