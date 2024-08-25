@@ -23,7 +23,7 @@ case $cmd in
         sudo nixos-rebuild switch --upgrade --flake . || restore_git_exit
         restore_git
         git add flake.lock
-        git commit -m "x nix flake" || echo "flake.lock not updated"
+        git commit -m "x nix flake update" || echo "flake.lock not updated"
         ;;
     switch|boot|test|build)
         sudo nixos-rebuild $cmd --flake . || restore_git_exit
