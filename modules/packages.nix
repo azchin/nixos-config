@@ -36,6 +36,8 @@ with lib; {
       python3
       man
       man-pages
+      texliveFull
+      ghostscript
       # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
       cargo
       rustc
