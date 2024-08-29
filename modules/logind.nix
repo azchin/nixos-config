@@ -9,8 +9,8 @@
     services.logind = {
       powerKey = "suspend-then-hibernate";
       powerKeyLongPress = "poweroff";
-      lidSwitch = "suspend";
+      lidSwitch = "suspend-then-hibernate";
     };
-    systemd.sleep.extraConfig = "HibernateDelaySec=2h";
+    systemd.sleep.extraConfig = "HibernateDelaySec=1h";
   };
 }
