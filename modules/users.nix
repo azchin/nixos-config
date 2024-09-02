@@ -8,6 +8,11 @@ with lib; {
       description = "Name of the primary user";  
       default = "andrew";
     };
+    myUser.extraGroups = mkOption {
+      type = listOf str;
+      description = "Extra groups for the user";  
+      default = [];
+    };
   };
   
   config = mkIf config.myUser.enable {
@@ -16,7 +21,7 @@ with lib; {
       isNormalUser = true;
       uid = 1000;
       group = config.myUser.primary;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" ] ++ config.myUser.extraGroups; # Enable ‘sudo’ for the user.
       shell = pkgs.zsh;
       packages = config.myPackages;
     };

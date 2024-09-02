@@ -73,6 +73,8 @@ with lib; {
       gdb
       pwndbg
       pwntools
+      dig
+      tcpdump
       # System utilities
       mprime
       lm_sensors
@@ -86,12 +88,19 @@ with lib; {
     # Custom modules
     myFirefox.enable = mkDefault true;
     myFcitx.enable = mkDefault true;
+    myDocker.enable = mkDefault true;
+    
+    programs.wireshark.enable = true;
+    myUser.extraGroups = [ "wireshark" ];
     
     services.psd.enable = true;
     services.transmission = {
       enable = true;
       package = pkgs.transmission_4;
       openPeerPorts = true;
+    };
+    systemd.services.transmission = {
+      enable = false;
     };
   
     fonts.packages = with pkgs; [

@@ -5,6 +5,7 @@
     myFirefox.enable = lib.mkEnableOption "myFirefox";
     myGaming.enable = lib.mkEnableOption "myGaming";
     myFcitx.enable = lib.mkEnableOption "myFcitx";
+    myDocker.enable = lib.mkEnableOption "myDocker";
   };
   
   config = lib.mkMerge [
@@ -56,6 +57,14 @@
         QT_IM_MODULE = "fcitx";
         XMODIFIERS = "@im=fcitx";
       };
+    })
+    (lib.mkIf config.myDocker.enable {
+      virtualisation.docker = {
+        enable = true;
+        enableOnBoot = false;
+        storageDriver = "btrfs";
+      };
+      myUser.extraGroups = [ "docker" ];
     })
   ];
 }
