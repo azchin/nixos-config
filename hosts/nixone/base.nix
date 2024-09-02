@@ -13,10 +13,7 @@
 
   # Configure custom modules
   myDesktop.enable = true;
-  nixoneNetwork = {
-    enable = true;
-    dnsOnly = false;
-  };
+  nixoneNetwork.enable = true;
   myHypr.enable = true;
   myX11.dpi = 96;
   myCursorSize = 36;

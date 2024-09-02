@@ -16,5 +16,6 @@
     ./efi.nix
     ./users.nix
     ./logind.nix
+    ./network.nix
   ];
 }
