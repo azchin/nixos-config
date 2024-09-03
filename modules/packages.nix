@@ -68,6 +68,7 @@ with lib; {
       kdePackages.okular
       calcurse
       nvimpager
+      vagrant
       # Security tools
       ghidra
       gdb
@@ -92,6 +93,8 @@ with lib; {
     
     programs.wireshark.enable = true;
     myUser.extraGroups = [ "wireshark" ];
+
+    myVirtualbox.enable = mkDefault true;
     
     services.psd.enable = true;
     services.transmission = {

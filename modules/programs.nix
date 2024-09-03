@@ -6,6 +6,7 @@
     myGaming.enable = lib.mkEnableOption "myGaming";
     myFcitx.enable = lib.mkEnableOption "myFcitx";
     myDocker.enable = lib.mkEnableOption "myDocker";
+    myVirtualbox.enable = lib.mkEnableOption "myVirtualbox";
   };
   
   config = lib.mkMerge [
@@ -22,6 +23,10 @@
           "extensions.pocket.enabled" = false;
         };
       };
+    })
+    (lib.mkIf config.myVirtualbox.enable {
+      virtualisation.virtualbox.host.enable = true;
+      users.users.${config.myUser.primary}.extraGroups = [ "vboxusers" ];
     })
     (lib.mkIf config.myGaming.enable {
       programs.steam = {
