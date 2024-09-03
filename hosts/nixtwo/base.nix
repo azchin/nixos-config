@@ -13,10 +13,7 @@
 
   # Configure custom modules
   myLaptop.enable = true;
-  nixtwoNetwork = {
-    enable = true;
-    dnsOnly = false;
-  };
+  nixtwoNetwork.enable = true;
   myAwesomewm.enable = true;
   myX11.dpi = 138;
   myCursorSize = 36;
