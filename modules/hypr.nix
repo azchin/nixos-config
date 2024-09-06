@@ -10,7 +10,6 @@
 
     # TODO use hyprland github in flakes?
     programs.hyprland.enable = true;
-    programs.hyprland.package = pkgs.hyprland.override { legacyRenderer = true; };
     programs.hyprlock.enable = true;
 
     myPackages = with pkgs; [

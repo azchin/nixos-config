@@ -14,6 +14,7 @@ with lib; {
     myPackages = with pkgs; [
       # CLI tools start here
       htop
+      btop
       neofetch
       tree
       bc
