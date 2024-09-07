@@ -185,6 +185,16 @@ with lib; {
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+    # SBOM
+    environment.etc."current-packages".text =
+      let
+        packages = builtins.map (p: "${p.name}") (config.environment.systemPackages ++ config.myPackages);
+        sortedUnique = builtins.sort builtins.lessThan (pkgs.lib.lists.unique packages);
+        formatted = builtins.concatStringsSep "\n" sortedUnique;
+      in
+        formatted;
+
+
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
