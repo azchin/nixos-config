@@ -26,6 +26,7 @@ with lib; {
       tealdeer
       ncdu
       psmisc
+      sshpass
       zip
       unzip
       yq
