@@ -31,34 +31,32 @@ with lib; {
       unzip
       yq
       jq
-      gcc
-      cmake
-      gnumake
-      ninja
+      gdb
       python3
       man
       man-pages
       texliveFull
       ghostscript
+      gcc
+      cmake
+      gnumake
+      ninja
+      meson # apparently this is nice?
+      pyright
+      ccls
+      bear
       # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
       cargo
       rustc
+      rust-analyzer
       # Graphical apps
       alacritty
-      neovide
       keepassxc
       nextcloud-client
       guvcview
       nsxiv
       mpv
-      yt-dlp
-      ffmpeg
-      imagemagick
       transmission_4-gtk
-      hunspell
-      hunspellDicts.en-us
-      hunspellDicts.en-ca
-      yubikey-manager
       brave
       signal-desktop
       audacity
@@ -68,12 +66,27 @@ with lib; {
       pavucontrol
       libreoffice-fresh
       kdePackages.okular
-      calcurse
+      obs-studio
+      digikam
+      krita
+      # Things to try later
+      # reaper
+      # neovide
+      # xournalpp
+      # calcurse
+      # gopls
+      # More utilities
+      yt-dlp
+      ffmpeg
+      imagemagick
+      hunspell
+      hunspellDicts.en-us
+      hunspellDicts.en-ca
+      yubikey-manager
       nvimpager
       vagrant
       # Security tools
       ghidra
-      gdb
       pwndbg
       pwntools
       dig

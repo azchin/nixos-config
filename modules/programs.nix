@@ -19,7 +19,7 @@
           "browser.compactmode.show" = true;
           "browser.tabs.insertAfterCurrent" = true;
           "findbar.highlightAll" = true;
-          "browser.sessionstore.interval" = 600000;
+          "browser.sessionstore.interval" = 60000;
           "extensions.pocket.enabled" = false;
         };
       };
