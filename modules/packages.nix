@@ -12,6 +12,8 @@ with lib; {
   
   # TODO merge with minimal and cleanup hypr, x11, targets, hosts
   #      or rename minimal to theme and modularize this file
+  # TODO remove myUser enable option (should be on always, or enum)
+  # TODO make graphical on in hypr, x11 (these are what's used in hosts)
   config = mkIf config.myGraphical.enable {
     myPackages = with pkgs; [
       # CLI tools start here
@@ -47,10 +49,8 @@ with lib; {
       pyright
       ccls
       bear
-      # for rust, follow rustup instructions for devshell https://nixos.wiki/wiki/Rust
-      cargo
-      rustc
-      rust-analyzer
+      # Alternative is to use https://github.com/oxalica/rust-overlay
+      rustup
       # Graphical apps
       alacritty
       keepassxc
@@ -71,9 +71,9 @@ with lib; {
       obs-studio
       digikam
       krita
+      neovide
       # Things to try later
       # reaper
-      # neovide
       # xournalpp
       # calcurse
       # gopls
@@ -96,6 +96,7 @@ with lib; {
       # System utilities
       mprime
       lm_sensors
+      psensor
       cpu-x
       linuxPackages.cpupower
       pciutils

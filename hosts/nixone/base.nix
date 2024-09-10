@@ -18,6 +18,7 @@
   myX11.dpi = 96;
   myCursorSize = 36;
 
+  # TODO clean this up into multihead target or module
   services.xserver.xrandrHeads = [ 
     {
       output = "DP-2";
