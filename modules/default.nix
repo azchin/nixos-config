@@ -4,8 +4,8 @@
   imports = [
     ./packages.nix
     ./x11.nix
-    ./lightdm.nix
-    ./ly.nix
+    ./display-manager.nix
+    ./kwallet.nix
     ./awesomewm.nix
     ./minimal.nix
     ./hypr.nix

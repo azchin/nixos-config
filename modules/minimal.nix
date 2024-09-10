@@ -11,7 +11,7 @@
   };
   
   config = lib.mkIf config.myMinimal.enable {
-    myLy.enable = true;
+    myDisplayManager = "ly";
 
     myPackages = with pkgs; [
       arc-theme

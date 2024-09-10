@@ -10,6 +10,8 @@ with lib; {
     };
   };
   
+  # TODO merge with minimal and cleanup hypr, x11, targets, hosts
+  #      or rename minimal to theme and modularize this file
   config = mkIf config.myGraphical.enable {
     myPackages = with pkgs; [
       # CLI tools start here
@@ -105,11 +107,11 @@ with lib; {
     myFirefox.enable = mkDefault true;
     myFcitx.enable = mkDefault true;
     myDocker.enable = mkDefault true;
+    myVirtualbox.enable = mkDefault true;
+    myKwallet.enable = mkDefault true;
     
     programs.wireshark.enable = true;
     myUser.extraGroups = [ "wireshark" ];
-
-    myVirtualbox.enable = mkDefault true;
     
     services.psd.enable = true;
     services.transmission = {
@@ -207,7 +209,6 @@ with lib; {
       in
         formatted;
 
-
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -243,8 +244,6 @@ with lib; {
     # Enable CUPS to print documents.
     # services.printing.enable = true;
 
-    # TODO kwallet after NixOS fixes PAM https://github.com/NixOS/nixpkgs/issues/258296
-  
     # NOTE still need to set up .xprofile and xrdb
 
     # Some programs need SUID wrappers, can be configured further or are
