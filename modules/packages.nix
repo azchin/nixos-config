@@ -28,6 +28,8 @@ with lib; {
       ripgrep
       fd
       tealdeer
+      tokei
+      fzf
       ncdu
       psmisc
       sshpass
