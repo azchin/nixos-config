@@ -6,8 +6,6 @@
   };
   
   config = lib.mkIf config.myLaptop.enable {
-    myUser.enable = true;
-    myGraphical.enable = true;
     myPackages = with pkgs; [
       cbatticon
       light

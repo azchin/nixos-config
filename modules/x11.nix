@@ -12,6 +12,7 @@
   
   config = lib.mkIf config.myX11.enable {
     myMinimal.enable = true;
+    myGraphical.enable = true;
 
     # Enable the X11 windowing system.
     services.xserver = {

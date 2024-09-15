@@ -11,8 +11,6 @@
   };
   
   config = lib.mkIf config.myMinimal.enable {
-    myDisplayManager = "ly";
-
     myPackages = with pkgs; [
       arc-theme
       papirus-icon-theme

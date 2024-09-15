@@ -10,10 +10,8 @@ with lib; {
     };
   };
   
-  # TODO merge with minimal and cleanup hypr, x11, targets, hosts
-  #      or rename minimal to theme and modularize this file
-  # TODO remove myUser enable option (should be on always, or enum)
-  # TODO make graphical on in hypr, x11 (these are what's used in hosts)
+  # TODO modularize this file
+  #      split into server packages and graphical ones
   config = mkIf config.myGraphical.enable {
     myPackages = with pkgs; [
       # CLI tools start here
@@ -107,11 +105,13 @@ with lib; {
     ];
 
     # Custom modules
+    myUser.enable = mkDefault true;
     myFirefox.enable = mkDefault true;
     myFcitx.enable = mkDefault true;
     myDocker.enable = mkDefault true;
     myVirtualbox.enable = mkDefault true;
     myKwallet.enable = mkDefault true;
+    myDisplayManager = mkDefault "ly";
     
     programs.wireshark.enable = true;
     myUser.extraGroups = [ "wireshark" ];

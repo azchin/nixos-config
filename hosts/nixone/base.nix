@@ -12,8 +12,8 @@
   time.timeZone = "America/New_York";
 
   # Configure custom modules
-  myDesktop.enable = true;
   nixoneNetwork.enable = true;
+  myDesktop.enable = true;
   myHypr.enable = true;
   myX11.dpi = 96;
   myCursorSize = 36;

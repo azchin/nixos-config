@@ -12,8 +12,8 @@
   time.timeZone = "America/New_York";
 
   # Configure custom modules
-  myLaptop.enable = true;
   nixtwoNetwork.enable = true;
+  myLaptop.enable = true;
   myAwesomewm.enable = true;
   myX11.dpi = 138;
   myCursorSize = 36;
