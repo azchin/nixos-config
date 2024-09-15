@@ -20,7 +20,9 @@ case $cmd in
     upgrade)
         echo "Upgrading!"
         nix flake update
-        sudo nixos-rebuild switch --upgrade --flake . || restore_git_exit
+        sudo nixos-rebuild switch --upgrade --flake . \
+            || (echo "nixos-rebuild failed, continue? [y/N]"; read answer; [ "$answer" = "y" ]) \
+            || restore_git_exit
         restore_git
         git add flake.lock
         git commit -m "x nix flake update" || echo "flake.lock not updated"
