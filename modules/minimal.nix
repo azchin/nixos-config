@@ -18,6 +18,11 @@
       kdePackages.breeze
       libsForQt5.breeze-qt5
       kdePackages.oxygen-icons
+      glib # gsettings
+      gsettings-qt
+      gsettings-desktop-schemas
+      dconf-editor
+      xorg.xrdb
       pcmanfm
       lxmenu-data
       shared-mime-info

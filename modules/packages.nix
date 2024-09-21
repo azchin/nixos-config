@@ -179,7 +179,18 @@ with lib; {
       config.common.default = "gtk";
     };
 
-    programs.dconf.enable = true;
+    # TODO home manager?
+    # dconf write /org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"
+    programs.dconf = {
+      enable = true;
+      profiles.user.databases = [
+        {
+          settings = {
+            "org/gnome/desktop/interface" = { cursor-theme = "capitaine-cursors-white"; };
+          };
+        }
+      ];
+    };
     programs.gnupg.agent = {
       # NOTE touch ~/.gnupg/gpg-agent.conf and mkdir ~/.local/share/gnupg mode 700
       enable = true;
