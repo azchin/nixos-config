@@ -8,6 +8,7 @@
   config = lib.mkIf config.myDesktop.enable {
     myPackages = with pkgs; [
       geekbench
+      furmark
     ];
   };
 }
