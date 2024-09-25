@@ -39,6 +39,7 @@ with lib; {
       python3
       man
       man-pages
+      poppler_utils
       texliveFull
       ghostscript
       gcc
@@ -96,7 +97,9 @@ with lib; {
       # System utilities
       mprime
       lm_sensors
-      psensor
+      resources
+      # TODO sensors -j into a grapher
+      # hardinfo # package hardinfo2?
       cpu-x
       linuxPackages.cpupower
       pciutils

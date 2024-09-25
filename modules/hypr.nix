@@ -16,7 +16,7 @@
     myPackages = with pkgs; [
       wl-clipboard
       rofi-wayland
-      emacs29-pgtk
+      emacs30-pgtk
       waybar
       slurp
       grim
