@@ -6,6 +6,7 @@
   };
   
   config = lib.mkIf config.myDesktop.enable {
+    services.logind.powerKey = "ignore";
     myPackages = with pkgs; [
       geekbench
       furmark
