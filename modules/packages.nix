@@ -102,6 +102,8 @@ with lib; {
       # hardinfo # package hardinfo2?
       cpu-x
       linuxPackages.cpupower
+      nvme-cli
+      smartmontools
       pciutils
       libva-utils
       glxinfo

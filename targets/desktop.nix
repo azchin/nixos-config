@@ -10,6 +10,7 @@
     myPackages = with pkgs; [
       geekbench
       furmark
+      unigine-superposition
     ];
   };
 }
