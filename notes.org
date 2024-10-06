@@ -17,3 +17,5 @@ Private stuff in a submodule?
 - extra stuff
   - wireguard
   - fcitx
+* Refs
+https://aldoborrero.com/posts/2023/01/15/setting-up-my-machines-nix-style/

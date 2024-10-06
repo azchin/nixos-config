@@ -1,8 +1,11 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs, pkgs-stable, disko, ... }:
 
 {
   imports = [
+    disko.nixosModules.disko
     ../../configuration.nix
+    ../../private/disko-nixthree.nix
+    ../../private/hardware-nixthree.nix
   ];
 
   # Define your hostname.
@@ -50,5 +53,5 @@
     btrfs-progs
   ];
 
-  # system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
