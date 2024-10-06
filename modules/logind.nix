@@ -11,6 +11,6 @@
       powerKeyLongPress = "poweroff";
       lidSwitch = "suspend-then-hibernate";
     };
-    systemd.sleep.extraConfig = "HibernateDelaySec=1h";
+    systemd.sleep.extraConfig = "HibernateDelaySec=20m";
   };
 }
