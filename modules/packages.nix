@@ -73,6 +73,7 @@ with lib; {
       digikam
       krita
       neovide
+      inkscape
       # Things to try later
       # reaper
       # xournalpp
@@ -82,6 +83,7 @@ with lib; {
       yt-dlp
       ffmpeg
       imagemagick
+      potrace
       hunspell
       hunspellDicts.en-us
       hunspellDicts.en-ca
