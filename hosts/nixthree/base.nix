@@ -16,6 +16,7 @@
 
   # Configure custom modules
   nixoneNetwork.enable = true;
+  myWireguard.dnsOnly = true;
   myDesktop.enable = true;
   myHypr.enable = true;
   myX11.dpi = 96;
