@@ -12,6 +12,12 @@
     '';
     
     hardware.graphics.enable = true;
+    hardware.amdgpu.opencl.enable = true;
+    
+    services.ollama = {
+      acceleration = "rocm"; 
+      rocmOverrideGfx = "11.0.0";
+    };
     
     environment.systemPackages = with pkgs; [
       amdgpu_top
