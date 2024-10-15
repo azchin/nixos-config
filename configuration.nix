@@ -22,6 +22,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.tmp.useTmpfs = true;
+
   programs.neovim = {
     enable = true;
     vimAlias = false;

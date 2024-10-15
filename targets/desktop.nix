@@ -12,5 +12,10 @@
       furmark
       unigine-superposition
     ];
+
+    services.ollama.enable = true; # acceleration is in amdgpu
+    systemd.services.ollama.environment = {
+      OLLAMA_GPU_OVERHEAD = "1073741824";
+    };
   };
 }

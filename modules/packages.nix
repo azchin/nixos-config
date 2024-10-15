@@ -124,8 +124,6 @@ with lib; {
     programs.wireshark.enable = true;
     myUser.extraGroups = [ "wireshark" ];
     
-    services.ollama.enable = true; # acceleration is in amdgpu
-    
     services.psd.enable = true;
     services.transmission = {
       enable = true;
