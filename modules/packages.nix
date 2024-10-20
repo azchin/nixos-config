@@ -97,6 +97,7 @@ with lib; {
       pwntools
       dig
       tcpdump
+      nikto
       # System utilities
       mprime
       lm_sensors
