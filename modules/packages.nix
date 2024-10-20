@@ -74,6 +74,8 @@ with lib; {
       krita
       neovide
       inkscape
+      musescore
+      reaper
       # Things to try later
       # reaper
       # xournalpp
