@@ -5,9 +5,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ 
-    ./hardware-configuration.nix
-  ];
+  # NOTE imports = [ ./installer.nix ]; in /etc/nixos/configuration.nix
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
