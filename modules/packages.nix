@@ -89,9 +89,9 @@ with lib; {
       hunspell
       hunspellDicts.en-us
       hunspellDicts.en-ca
-      yubikey-manager
+      # yubikey-manager # FIXME re-enable when issue is fixed https://github.com/NixOS/nixpkgs/issues/352598
       nvimpager
-      vagrant
+      # vagrant # FIXME https://github.com/NixOS/nixpkgs/issues/348938
       distrobox
       # Security tools
       ghidra
