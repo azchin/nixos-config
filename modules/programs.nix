@@ -18,10 +18,13 @@
           "browser.aboutConfig.showWarning" = false;
           "browser.compactmode.show" = true;
           "browser.tabs.insertAfterCurrent" = true;
+          "browser.tabs.hoverPreview.showThumbnails" = false;
           "findbar.highlightAll" = true;
           "browser.sessionstore.interval" = 60000;
           "extensions.pocket.enabled" = false;
           "media.ffmpeg.vaapi.enabled" = true;
+          "browser.urlbar.placeholderName" = "DuckDuckGo";
+          "browser.urlbar.placeholderName.private" = "DuckDuckGo";
         };
         preferencesStatus = "default";
       };
