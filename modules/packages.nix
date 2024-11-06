@@ -37,6 +37,7 @@ with lib; {
       jq
       gdb
       python3
+      python312Packages.pygments
       man
       man-pages
       poppler_utils
@@ -76,6 +77,7 @@ with lib; {
       inkscape
       musescore
       reaper
+      kdenlive
       # Things to try later
       # reaper
       # xournalpp
