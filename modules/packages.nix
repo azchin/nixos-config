@@ -36,8 +36,13 @@ with lib; {
       yq
       jq
       gdb
-      python3
-      python312Packages.pygments
+      (python3.withPackages (p: with p; [
+        pip
+        virtualenv
+        pygments
+        pwntools
+        ropper
+      ]))
       man
       man-pages
       poppler_utils
@@ -98,7 +103,6 @@ with lib; {
       # Security tools
       ghidra
       pwndbg
-      pwntools
       dig
       tcpdump
       nikto
