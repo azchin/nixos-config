@@ -106,6 +106,8 @@ with lib; {
       dig
       tcpdump
       nikto
+      aflplusplus
+      qemu
       # System utilities
       mprime
       lm_sensors
