@@ -60,6 +60,8 @@ with lib; {
       quickemu
       spice
       spice-gtk
+      nmap
+      inetutils
       # Alternative is to use https://github.com/oxalica/rust-overlay
       rustup
       # Graphical apps
@@ -127,7 +129,6 @@ with lib; {
     ];
 
     # Custom modules
-    myUser.enable = mkDefault true;
     myFirefox.enable = mkDefault true;
     myFcitx.enable = mkDefault true;
     myDocker.enable = mkDefault true;
@@ -139,6 +140,7 @@ with lib; {
     myUser.extraGroups = [ "wireshark" ];
 
     services.spice-vdagentd.enable = true;
+    programs.ssh.startAgent = true;
     
     services.psd.enable = true;
     services.transmission = {

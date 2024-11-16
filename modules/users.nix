@@ -2,7 +2,11 @@
 
 with lib; {
   options = with types; {
-    myUser.enable = mkEnableOption "myUser";
+    myUser.enable = mkOption {
+        type = bool;
+        description = "Enable non-root user";
+        default = true;
+    };
     myUser.primary = mkOption {
       type = str;
       description = "Name of the primary user";  

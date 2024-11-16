@@ -57,8 +57,17 @@ with lib; {
   };
   config = mkMerge [
     (mkIf config.mySSH.enable {
+      # by default sets up sshd jail
+      # by default sets up services.openssh.logLevel to verbose
+      services.fail2ban.enable = true;
       services.openssh = {
         enable = true;
+        settings = {
+          PasswordAuthentication = false; 
+          PermitRootLogin = "no";
+          AllowUsers = [ config.myUser.primary ];
+        };
+        ports = [ config.mySSH.port ];
       };
     })
     (mkIf config.myWireguard.enable {
@@ -87,7 +96,7 @@ with lib; {
         };
       };
     })
-    (mkIf (config.myWireguard.enable && config.mySSH.enable && !config.myWireguard.dnsOnly) {
+    (mkIf (config.mySSH.enable && config.myWireguard.enable && !config.myWireguard.dnsOnly) {
       services.openssh = {
         listenAddresses = [
           {
@@ -108,19 +117,8 @@ with lib; {
         };
       };
     })
-    (mkIf (config.mySSH.enable && config.myWireguard.dnsOnly) {
-      # by default sets up sshd jail
-      # by default sets up services.openssh.logLevel to verbose
-      services.fail2ban.enable = true;
-      services.openssh = {
-        enable = true; 
-        settings = {
-          PasswordAuthentication = false; 
-          PermitRootLogin = "no";
-          AllowUsers = [ config.myUser.primary ];
-        };
-      };
-      networking.firewall.allowedTCPPorts = [ 22 ];
+    (mkIf (config.mySSH.enable && (!config.myWireguard.enable || config.myWireguard.dnsOnly )) {
+      networking.firewall.allowedTCPPorts = [ config.mySSH.port ];
     })
   ];
 }

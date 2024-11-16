@@ -39,10 +39,6 @@
 
   myGaming.enable = true;
   
-  # Hardware configuration
-  # nixthreeHardware.enable = true;
-  # nixthreeHardwareExtra.enable = true;
-
   # Bootloader
   myEFI.enable = true;
 

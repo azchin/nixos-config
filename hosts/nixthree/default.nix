@@ -7,18 +7,6 @@
   ];
 
   specialisation = {
-    safe = {
-      inheritParentConfig = false;
-      configuration = {
-        imports = [
-          ./base.nix
-        ];
-        boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
-        nixoneHardwareExtra.enable = lib.mkForce false;
-        myGaming.enable = lib.mkForce false;
-        myAmdgpu.enable = lib.mkForce false;
-      };
-    };
     server = {
       inheritParentConfig = false;
       configuration = {
@@ -29,6 +17,9 @@
         myX11.enable = lib.mkForce false;
         myHypr.enable = lib.mkForce false;
         nixoneNetwork.enable = lib.mkForce true;
+        mySSH.enable = lib.mkForce true;
+        myWireguard.enable = lib.mkForce true;
+        myWireguard.dnsOnly = lib.mkForce false;
       };
     };
   };
