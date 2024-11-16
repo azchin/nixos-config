@@ -56,6 +56,10 @@ with lib; {
       pyright
       ccls
       bear
+      qemu
+      quickemu
+      spice
+      spice-gtk
       # Alternative is to use https://github.com/oxalica/rust-overlay
       rustup
       # Graphical apps
@@ -107,7 +111,6 @@ with lib; {
       tcpdump
       nikto
       aflplusplus
-      qemu
       # System utilities
       mprime
       lm_sensors
@@ -134,6 +137,8 @@ with lib; {
     
     programs.wireshark.enable = true;
     myUser.extraGroups = [ "wireshark" ];
+
+    services.spice-vdagentd.enable = true;
     
     services.psd.enable = true;
     services.transmission = {
