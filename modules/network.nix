@@ -87,7 +87,7 @@ with lib; {
         };
       };
     })
-    (mkIf (config.myWireguard.enable && config.mySSH.enable) {
+    (mkIf (config.myWireguard.enable && config.mySSH.enable && !config.myWireguard.dnsOnly) {
       services.openssh = {
         listenAddresses = [
           {
@@ -107,6 +107,20 @@ with lib; {
           ];
         };
       };
+    })
+    (mkIf (config.mySSH.enable && config.myWireguard.dnsOnly) {
+      # by default sets up sshd jail
+      # by default sets up services.openssh.logLevel to verbose
+      services.fail2ban.enable = true;
+      services.openssh = {
+        enable = true; 
+        settings = {
+          PasswordAuthentication = false; 
+          PermitRootLogin = "no";
+          AllowUsers = [ config.myUser.primary ];
+        };
+      };
+      networking.firewall.allowedTCPPorts = [ 22 ];
     })
   ];
 }
