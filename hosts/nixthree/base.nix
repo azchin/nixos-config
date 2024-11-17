@@ -21,22 +21,6 @@
   myHypr.enable = true;
   myX11.dpi = 96;
   myCursorSize = 36;
-
-  # TODO clean this up into multihead target or module
-  services.xserver.xrandrHeads = [ 
-    {
-      output = "DP-2";
-      # DisplaySize 338 190\n
-      monitorConfig = ''
-        Option "LeftOf DP-1
-      '';
-    }
-    {
-      output = "DP-1";
-      primary = true;
-    }
-  ];
-
   myGaming.enable = true;
   
   # Bootloader

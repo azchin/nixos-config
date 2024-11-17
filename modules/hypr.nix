@@ -9,7 +9,6 @@
     myMinimal.enable = true;
     myGraphical.enable = true;
 
-    # TODO use hyprland github in flakes?
     programs.hyprland.enable = true;
     programs.hyprlock.enable = true;
 
