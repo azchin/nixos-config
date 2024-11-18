@@ -104,6 +104,7 @@ with lib; {
 
       programs.ssh.startAgent = true;
       services.spice-vdagentd.enable = true;
+      programs.mosh.enable = true;
 
       # SBOM
       environment.etc."current-packages".text =

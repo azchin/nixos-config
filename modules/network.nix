@@ -39,10 +39,10 @@ with lib; {
       default = "";
       description = "Wireguard endpoint";
     };
-    myWireguard.dnsOnly = mkOption {
-      type = bool;
-      default = false;
-      description = "Only use VPN for DNS";
+    myWireguard.mode = mkOption {
+      type = enum [ "dns" "devices" "everything" ];
+      default = "devices";
+      description = "Special mode for Wireguard. Options are to route DNS only, devices, or all traffic";
     };
     myWireguard.port = mkOption {
       type = int;
@@ -87,8 +87,8 @@ with lib; {
               publicKey = config.myWireguard.publicKey;
               presharedKey = config.myWireguard.presharedKey;
               endpoint = "${config.myWireguard.endpoint}:${toString config.myWireguard.port}";
-              allowedIPs = if !config.myWireguard.dnsOnly
-              then [ "0.0.0.0/0" "::/0" ]
+              allowedIPs = if config.myWireguard.mode == "devices" then [ "10.100.0.0/24" "fd08:4711::/64" ]
+              else if config.myWireguard.mode == "everything" then [ "0.0.0.0/0" "::/0" ]
               else [ ];
               persistentKeepalive = 25;
             }
@@ -96,7 +96,7 @@ with lib; {
         };
       };
     })
-    (mkIf (config.mySSH.enable && config.myWireguard.enable && !config.myWireguard.dnsOnly) {
+    (mkIf (config.mySSH.enable && config.myWireguard.enable && config.myWireguard.mode != "dns") {
       services.openssh = {
         listenAddresses = [
           {
@@ -117,7 +117,7 @@ with lib; {
         };
       };
     })
-    (mkIf (config.mySSH.enable && (!config.myWireguard.enable || config.myWireguard.dnsOnly )) {
+    (mkIf (config.mySSH.enable && (!config.myWireguard.enable || config.myWireguard.mode == "dns")) {
       networking.firewall.allowedTCPPorts = [ config.mySSH.port ];
     })
   ];
