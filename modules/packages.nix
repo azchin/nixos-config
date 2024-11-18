@@ -174,7 +174,7 @@ with lib; {
         dejavu_fonts
         noto-fonts-cjk-serif
         noto-fonts-cjk-sans
-        (nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
+        (nerdfonts.override { fonts = [ "DejaVuSansMono" "FiraCode" ]; })
       ];
       fonts.enableDefaultPackages = true;
 
