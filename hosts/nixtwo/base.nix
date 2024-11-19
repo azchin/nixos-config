@@ -13,6 +13,8 @@
 
   # Configure custom modules
   nixtwoNetwork.enable = true;
+  myWireguard.enable = true;
+  myWireguard.mode = "devices";
   myLaptop.enable = true;
   myAwesomewm.enable = true;
   myX11.dpi = 138;
