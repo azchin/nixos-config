@@ -16,6 +16,9 @@
 
   # Configure custom modules
   nixoneNetwork.enable = true;
+  myWireguard.enable = true;
+  myWireguard.mode = "devices";
+  mySSH.enable = true;
   myDesktop.enable = true;
   myHypr.enable = true;
   myX11.dpi = 96;

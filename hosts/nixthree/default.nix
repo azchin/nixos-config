@@ -19,6 +19,7 @@
         nixoneNetwork.enable = lib.mkForce true;
         mySSH.enable = lib.mkForce true;
         myWireguard.enable = lib.mkForce true;
+        myWireguard.mode = lib.mkForce "everything";
       };
     };
   };

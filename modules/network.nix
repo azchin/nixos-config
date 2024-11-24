@@ -40,7 +40,7 @@ with lib; {
       description = "Wireguard endpoint";
     };
     myWireguard.mode = mkOption {
-      type = enum [ "dns" "devices" "everything" ];
+      type = enum [ "devices" "dns" "everything" ];
       default = "devices";
       description = "Special mode for Wireguard. Options are to route DNS only, devices, or all traffic";
     };
@@ -87,7 +87,10 @@ with lib; {
               publicKey = config.myWireguard.publicKey;
               presharedKey = config.myWireguard.presharedKey;
               endpoint = "${config.myWireguard.endpoint}:${toString config.myWireguard.port}";
-              allowedIPs = if config.myWireguard.mode == "devices" then [ "10.100.0.0/24" "fd08:4711::/64" ]
+              allowedIPs = if config.myWireguard.mode == "devices" then [
+                "10.100.0.0/24"
+                "fd08:4711::/64"
+              ]
               else if config.myWireguard.mode == "everything" then [ "0.0.0.0/0" "::/0" ]
               else [ ];
               persistentKeepalive = 25;
