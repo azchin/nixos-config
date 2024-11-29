@@ -2,6 +2,9 @@
 set -eu
 dir=$(dirname $(realpath $0))
 cmd="${1:-switch}"
+if [ $# -ge 1 ]; then
+    shift 1
+fi
 
 restore_git() {
     git restore --staged private
@@ -28,7 +31,8 @@ case $cmd in
         git commit -m "x nix flake update" || echo "flake.lock not updated"
         ;;
     switch|boot|test|build)
-        sudo nixos-rebuild $cmd --flake . || restore_git_exit
+        echo "sudo nixos-rebuild $cmd $@ --flake . || restore_git_exit"
+        sudo nixos-rebuild $cmd $@ --flake . || restore_git_exit
         restore_git
         ;;
     bootloader)

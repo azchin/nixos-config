@@ -61,6 +61,7 @@ with lib; {
         spice-gtk
         nmap
         inetutils
+        lynx
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         # More utilities
@@ -96,6 +97,7 @@ with lib; {
       ];
 
       myDocker.enable = mkDefault true;
+      myFirefox.enable = mkDefault true; # for headless
 
       programs.gnupg.agent = {
         enable = true;
@@ -144,6 +146,7 @@ with lib; {
         reaper
         kdenlive
         ghidra
+        stremio
         # Things to try later
         # reaper
         # xournalpp
@@ -152,9 +155,8 @@ with lib; {
       ];
 
       # Custom modules
-      myFirefox.enable = mkDefault true;
       myFcitx.enable = mkDefault true;
-      myVirtualbox.enable = mkDefault true;
+      myVirtualbox.enable = mkDefault false;
       myKwallet.enable = mkDefault true;
       myDisplayManager = mkDefault "ly";
     
