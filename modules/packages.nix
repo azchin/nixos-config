@@ -21,6 +21,7 @@ with lib; {
         bc
         file
         git
+        git-lfs
         tmux
         ripgrep
         fd
@@ -62,6 +63,7 @@ with lib; {
         nmap
         inetutils
         lynx
+        sqlite
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         # More utilities
@@ -94,6 +96,7 @@ with lib; {
         pciutils
         libva-utils
         glxinfo
+        usbutils
       ];
 
       myDocker.enable = mkDefault true;
