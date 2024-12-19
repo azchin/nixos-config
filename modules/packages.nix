@@ -100,6 +100,7 @@ with lib; {
         libva-utils
         glxinfo
         usbutils
+        speedtest-cli
       ];
 
       myDocker.enable = mkDefault true;
