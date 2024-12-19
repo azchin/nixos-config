@@ -64,6 +64,7 @@ with lib; {
         inetutils
         lynx
         sqlite
+        foremost
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         # More utilities
@@ -76,8 +77,10 @@ with lib; {
         hunspellDicts.en-ca
         yubikey-manager
         nvimpager
-        # vagrant # FIXME https://github.com/NixOS/nixpkgs/issues/348938
+        vagrant
         distrobox
+        httpie
+        insomnia
         # Security tools
         pwndbg
         dig
