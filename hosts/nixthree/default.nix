@@ -2,8 +2,7 @@
 
 {
   imports = [
-    # FIXME temp default to server
-    ./server.nix
+    ./base.nix
     ./nixos-hardware.nix
   ];
 
