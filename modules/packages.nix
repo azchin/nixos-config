@@ -56,10 +56,12 @@ with lib; {
         pyright
         ccls
         bear
-        qemu
-        quickemu
-        spice
-        spice-gtk
+        # qemu # FIXME i guess, for the next 4 things
+        # quickemu # FIXME https://github.com/NixOS/nixpkgs/issues/334843
+        # spice
+        # spice-gtk
+        # vagrant # FIXME https://github.com/NixOS/nixpkgs/issues/370158
+        distrobox
         nmap
         inetutils
         lynx
@@ -77,8 +79,6 @@ with lib; {
         hunspellDicts.en-ca
         yubikey-manager
         nvimpager
-        vagrant
-        distrobox
         httpie
         insomnia
         # Security tools
