@@ -9,7 +9,7 @@
   networking.hostName = "nixtwo";
 
   # Set your time zone.
-  time.timeZone = "America/Vancouver";
+  time.timeZone = "America/New_York";
 
   # Configure custom modules
   nixtwoNetwork.enable = true;
