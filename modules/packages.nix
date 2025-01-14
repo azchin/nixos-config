@@ -154,6 +154,7 @@ with lib; {
         kdenlive
         ghidra
         stremio
+        discord-canary
         # Things to try later
         # reaper
         # xournalpp
@@ -255,6 +256,7 @@ with lib; {
         enable = true;
         pulse.enable = true;
         jack.enable = true;
+        wireplumber.enable = true;
       };
 
       # Enable touchpad support (enabled default in most desktopManager).
