@@ -56,11 +56,12 @@ with lib; {
         pyright
         ccls
         bear
-        # qemu # FIXME i guess, for the next 4 things
-        # quickemu # FIXME https://github.com/NixOS/nixpkgs/issues/334843
-        # spice
-        # spice-gtk
-        # vagrant # FIXME https://github.com/NixOS/nixpkgs/issues/370158
+        qemu
+        quickemu
+        spice
+        spice-gtk
+        vagrant
+        gocryptfs
         distrobox
         nmap
         inetutils
@@ -152,7 +153,7 @@ with lib; {
         musescore
         reaper
         kdenlive
-        ghidra
+        # ghidra # FIXME https://github.com/NixOS/nixpkgs/issues/374703
         stremio
         discord-canary
         # Things to try later
