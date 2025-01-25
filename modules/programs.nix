@@ -13,7 +13,7 @@
     (lib.mkIf config.myFirefox.enable {
       programs.firefox = {
         enable = true;
-        package = pkgs.firefox-bin; # FIXME https://github.com/NixOS/nixpkgs/issues/332540
+        # package = pkgs.firefox-bin; # FIXME https://github.com/NixOS/nixpkgs/issues/332540
         preferences = {
           "browser.aboutConfig.showWarning" = false;
           "browser.compactmode.show" = true;
@@ -23,6 +23,10 @@
           "browser.sessionstore.interval" = 60000;
           "extensions.pocket.enabled" = false;
           "media.ffmpeg.vaapi.enabled" = true;
+          "media.ffvpx.enabled" = false;
+          "media.rdd-vpx.enabled" = false;
+          "media.navigator.mediadatadecoder_vpx_enabled" = true;
+          "gfx.webrender.all" = true;
           "browser.urlbar.placeholderName" = "DuckDuckGo";
           "browser.urlbar.placeholderName.private" = "DuckDuckGo";
         };

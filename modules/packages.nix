@@ -42,6 +42,8 @@ with lib; {
           pygments
           pwntools
           ropper
+          numpy
+          scipy
         ]))
         man
         man-pages
@@ -72,7 +74,7 @@ with lib; {
         rustup
         # More utilities
         yt-dlp
-        ffmpeg
+        ffmpeg-full
         imagemagick
         potrace
         hunspell
@@ -82,6 +84,7 @@ with lib; {
         nvimpager
         httpie
         insomnia
+        appimage-run
         # Security tools
         pwndbg
         dig
@@ -145,7 +148,6 @@ with lib; {
         pavucontrol
         libreoffice-fresh
         kdePackages.okular
-        obs-studio
         digikam
         krita
         neovide
@@ -171,6 +173,14 @@ with lib; {
     
       programs.wireshark.enable = true;
       myUser.extraGroups = [ "wireshark" ];
+
+      programs.obs-studio = {
+        enable = true;
+        plugins = with pkgs.obs-studio-plugins; [
+          obs-composite-blur
+          obs-backgroundremoval
+        ];
+      };
     
       services.psd.enable = true;
       services.transmission = {
