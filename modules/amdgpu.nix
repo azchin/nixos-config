@@ -24,9 +24,6 @@
 
     myPackages = with pkgs; [
       rocmPackages.rocminfo
-    ];
-    
-    environment.systemPackages = with pkgs; [
       amdgpu_top
     ];
   };
