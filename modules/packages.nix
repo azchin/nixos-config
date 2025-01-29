@@ -155,7 +155,7 @@ with lib; {
         musescore
         reaper
         kdenlive
-        # ghidra # FIXME https://github.com/NixOS/nixpkgs/issues/374703
+        ghidra
         stremio
         discord-canary
         # Things to try later
