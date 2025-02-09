@@ -56,6 +56,7 @@
           ];
         })
         wineWowPackages.stable
+        r2modman
       ];
     })
     (lib.mkIf config.myFcitx.enable {

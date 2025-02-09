@@ -17,7 +17,9 @@
     # https://github.com/ollama/ollama/blob/main/docs/gpu.md#amd-radeon
     services.ollama = {
       enable = true;
-      package = pkgs-stable.ollama; # FIXME https://github.com/NixOS/nixpkgs/pull/373234
+      # FIXME https://github.com/NixOS/nixpkgs/issues/376930
+      # FIXME https://github.com/NixOS/nixpkgs/pull/373234
+      package = pkgs-stable.ollama;
       acceleration = "rocm"; 
       rocmOverrideGfx = "11.0.0";
     };
