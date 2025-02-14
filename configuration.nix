@@ -2,15 +2,17 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs-unstable, pkgs-stable, ... }:
+{ config, lib, modulesPath, pkgs-unstable, pkgs-stable, ... }:
 
 {
   imports = [
     ./modules/default.nix
     ./private/default.nix
     ./targets/default.nix
+    (modulesPath + "/misc/nixpkgs/read-only.nix")
   ];
   
+  nixpkgs.pkgs = pkgs-unstable;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.gc = {

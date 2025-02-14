@@ -30,28 +30,20 @@
     baseSpecialArgs = {
       inherit pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware; 
     };
-    baseModules = [
-      # nixpkgs.nixosModules.readOnlyPkgs
-      # {
-      #   nixpkgs.pkgs = pkgs-unstable;
-      #   nixpkgs.config = { };
-      #   nixpkgs.overlays = [ ];
-      # }
-    ];
   in {
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
     nixosConfigurations = {
       nixone = nixpkgs.lib.nixosSystem {
         inherit (baseSpecialArgs) specialArgs;
-        modules = baseModules ++ [ ./hosts/nixone ];
+        modules = [ ./hosts/nixone ];
       };
       nixtwo = nixpkgs.lib.nixosSystem {
         inherit (baseSpecialArgs) specialArgs;
-        modules = baseModules ++ [ ./hosts/nixtwo ];
+        modules = [ ./hosts/nixtwo ];
       };
       nixthree = nixpkgs.lib.nixosSystem {
         specialArgs = baseSpecialArgs // { inherit disko; };
-        modules = baseModules ++ [ ./hosts/nixthree ];
+        modules = [ ./hosts/nixthree ];
       };
     };
   };
