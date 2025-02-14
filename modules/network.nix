@@ -1,5 +1,7 @@
 { config, lib, pkgs, pkgs-stable, ... }:
 
+# TODO experiment with multiple interfaces
+
 with lib; {
   options = with types; {
     mySSH.enable = mkEnableOption "mySSH";

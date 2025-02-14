@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs, pkgs-stable, pkgs-pwndbg, ... }:
 
 with lib; {
   options = with types; {
@@ -86,7 +86,7 @@ with lib; {
         insomnia
         appimage-run
         # Security tools
-        pwndbg
+        pkgs-pwndbg.default
         dig
         tcpdump
         nikto

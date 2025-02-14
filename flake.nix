@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    pwndbg = {
+      url = "github:pwndbg/pwndbg"; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko = {
       url = "github:nix-community/disko";
@@ -11,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, disko }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko }@inputs:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -22,19 +26,20 @@
       inherit system;
       config.allowUnfree = true;
     };
+    pkgs-pwndbg = pwndbg.packages.${system};
   in {
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
     nixosConfigurations = {
       nixone = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs pkgs-stable nixos-hardware; };
+        specialArgs = { inherit pkgs pkgs-stable pkgs-pwndbg nixos-hardware; };
         modules = [ ./hosts/nixone ];
       };
       nixtwo = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs pkgs-stable nixos-hardware; };
+        specialArgs = { inherit pkgs pkgs-stable pkgs-pwndbg nixos-hardware; };
         modules = [ ./hosts/nixtwo ];
       };
       nixthree = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs pkgs-stable nixos-hardware disko; };
+        specialArgs = { inherit pkgs pkgs-stable pkgs-pwndbg nixos-hardware disko; };
         modules = [ ./hosts/nixthree ];
       };
     };
