@@ -16,35 +16,40 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko }@inputs:
-  let
-    system = "x86_64-linux";
-    pkgs-unstable = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    pkgs-stable = import nixpkgs-stable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    pkgs-pwndbg = pwndbg.packages.${system};
-    baseSpecialArgs = {
-      inherit pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware; 
-    };
-  in {
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
-    nixosConfigurations = {
-      nixone = nixpkgs.lib.nixosSystem {
-        inherit (baseSpecialArgs) specialArgs;
-        modules = [ ./hosts/nixone ];
-      };
-      nixtwo = nixpkgs.lib.nixosSystem {
-        inherit (baseSpecialArgs) specialArgs;
-        modules = [ ./hosts/nixtwo ];
-      };
-      nixthree = nixpkgs.lib.nixosSystem {
-        specialArgs = baseSpecialArgs // { inherit disko; };
-        modules = [ ./hosts/nixthree ];
-      };
+    # https://nix.dev/manual/nix/2.18/language/constructs
+    {
+      nixosConfigurations = 
+        let
+          favourite = "x86_64-linux";
+          provideArgs = system:
+            let
+              pkgs-unstable = import nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+              };
+              pkgs-stable = import nixpkgs-stable {
+                inherit system;
+                config.allowUnfree = true;
+              };
+              pkgs-pwndbg = pwndbg.packages.${system};
+            in
+              {
+                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware; 
+              };
+        in {
+          nixone = nixpkgs.lib.nixosSystem {
+            specialArgs = provideArgs favourite;
+            modules = [ ./hosts/nixone ];
+          };
+          nixtwo = nixpkgs.lib.nixosSystem {
+            specialArgs = provideArgs favourite;
+            modules = [ ./hosts/nixtwo ];
+          };
+          nixthree = nixpkgs.lib.nixosSystem {
+            specialArgs = provideArgs favourite // { inherit disko; };
+            modules = [ ./hosts/nixthree ];
+          };
+        };
     };
-  };
 }

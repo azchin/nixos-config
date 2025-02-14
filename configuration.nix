@@ -2,14 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, modulesPath, pkgs-unstable, pkgs-stable, ... }:
+{ config, lib, inputs, pkgs-unstable, pkgs-stable, ... }:
 
 {
   imports = [
     ./modules/default.nix
     ./private/default.nix
     ./targets/default.nix
-    (modulesPath + "/misc/nixpkgs/read-only.nix")
+    inputs.nixpkgs.nixosModules.readOnlyPkgs
   ];
   
   nixpkgs.pkgs = pkgs-unstable;
