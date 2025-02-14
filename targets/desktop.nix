@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -7,7 +7,7 @@
   
   config = lib.mkIf config.myDesktop.enable {
     services.logind.powerKey = "ignore";
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       geekbench
       furmark
       unigine-superposition

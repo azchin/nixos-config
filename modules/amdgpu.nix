@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -24,7 +24,7 @@
       rocmOverrideGfx = "11.0.0";
     };
 
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       rocmPackages.rocminfo
       amdgpu_top
     ];

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -48,7 +48,7 @@
         capSysNice = true;
       };
       hardware.graphics.enable32Bit = true;
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = with pkgs-unstable; [
         (lutris.override {
           extraPkgs = pkgs: [
             wineWowPackages.stable
@@ -64,7 +64,7 @@
         type = "fcitx5";
         fcitx5 = {
           plasma6Support = true;
-          addons = with pkgs; [
+          addons = with pkgs-unstable; [
             fcitx5-mozc
             kdePackages.fcitx5-chinese-addons
           ];

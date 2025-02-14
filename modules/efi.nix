@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -13,7 +13,7 @@
     };
     boot.loader.efi.canTouchEfiVariables = true;
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs-unstable; [
       efibootmgr
     ];
   };

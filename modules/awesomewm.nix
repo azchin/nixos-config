@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -10,8 +10,8 @@
 
     services.xserver.windowManager.awesome = {
       enable = true;
-      package = (pkgs.awesome.overrideAttrs (oldAttrs: rec {      
-        src = pkgs.fetchFromGitHub {
+      package = (pkgs-unstable.awesome.overrideAttrs (oldAttrs: rec {      
+        src = pkgs-unstable.fetchFromGitHub {
           owner = "awesomeWM";
           repo = "awesome";
           rev = "ad0290bc1aac3ec2391aa14784146a53ebf9d1f0";
@@ -24,7 +24,7 @@
       })).override {
         gtk3Support = true;
       };    
-      luaModules = with pkgs.luaPackages; [
+      luaModules = with pkgs-unstable.luaPackages; [
         luarocks # is the package manager for Lua modules
         luadbi-mysql # Database abstraction layer
       ];

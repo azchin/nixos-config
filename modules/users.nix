@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 with lib; {
   options = with types; {
@@ -26,7 +26,7 @@ with lib; {
       uid = 1000;
       group = config.myUser.primary;
       extraGroups = [ "wheel" ] ++ config.myUser.extraGroups; # Enable ‘sudo’ for the user.
-      shell = pkgs.zsh;
+      shell = pkgs-unstable.zsh;
       packages = config.myPackages;
     };
 

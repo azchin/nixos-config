@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -6,7 +6,7 @@
   };
   
   config = lib.mkIf config.myLaptop.enable {
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       cbatticon
       light
     ];

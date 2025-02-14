@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -11,7 +11,7 @@
   };
   
   config = lib.mkIf config.myMinimal.enable {
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       arc-theme
       papirus-icon-theme
       capitaine-cursors

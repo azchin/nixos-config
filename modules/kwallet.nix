@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -9,12 +9,12 @@
     # kwallet https://github.com/NixOS/nixpkgs/issues/258296
     security.pam.services.${config.myDisplayManager}.kwallet = { 
       enable = true; 
-      package = pkgs.kdePackages.kwallet-pam; 
+      package = pkgs-unstable.kdePackages.kwallet-pam; 
       forceRun = true;
     };
-    environment.etc."kwallet-pam-path".text = pkgs.kdePackages.kwallet-pam.outPath;
+    environment.etc."kwallet-pam-path".text = pkgs-unstable.kdePackages.kwallet-pam.outPath;
 
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       kdePackages.kwallet
       kdePackages.kwalletmanager
     ];

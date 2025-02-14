@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -12,7 +12,7 @@
     programs.hyprland.enable = true;
     programs.hyprlock.enable = true;
 
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       wl-clipboard
       rofi-wayland
       emacs30-pgtk

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -10,7 +10,7 @@
 
     services.xserver.windowManager.dwm = {
       enable = true;
-      package = pkgs.dwm.override {
+      package = pkgs-unstable.dwm.override {
         conf = ./config.h;
       };
     };

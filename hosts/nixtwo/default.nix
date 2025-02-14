@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, nixos-hardware, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, nixos-hardware, ... }:
 
 {
   imports = [
@@ -13,7 +13,7 @@
         imports = [
           ./base.nix
         ];
-        boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
+        boot.kernelPackages = lib.mkForce pkgs-unstable.linuxPackages;
         myGaming.enable = lib.mkForce false;
         services.auto-cpufreq.enable = lib.mkForce false;
       };

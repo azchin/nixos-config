@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, disko, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, disko, ... }:
 
 {
   imports = [
@@ -33,7 +33,7 @@
   myAmdgpu.enable = true;
   
   # Install programs specific for this host
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     btrfs-progs
   ];
 

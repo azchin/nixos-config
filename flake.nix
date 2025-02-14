@@ -18,7 +18,7 @@
   outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko }@inputs:
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
+    pkgs-unstable = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
@@ -28,15 +28,15 @@
     };
     pkgs-pwndbg = pwndbg.packages.${system};
     baseSpecialArgs = {
-      inherit pkgs pkgs-stable pkgs-pwndbg nixos-hardware; 
+      inherit pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware; 
     };
     baseModules = [
-      nixpkgs.nixosModules.readOnlyPkgs
-      {
-        nixpkgs.pkgs = pkgs;
-        nixpkgs.config = { };
-        nixpkgs.overlays = [ ];
-      }
+      # nixpkgs.nixosModules.readOnlyPkgs
+      # {
+      #   nixpkgs.pkgs = pkgs-unstable;
+      #   nixpkgs.config = { };
+      #   nixpkgs.overlays = [ ];
+      # }
     ];
   in {
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix

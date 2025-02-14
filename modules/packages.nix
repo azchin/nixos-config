@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, pkgs-pwndbg, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, pkgs-pwndbg, ... }:
 
 with lib; {
   options = with types; {
@@ -12,7 +12,7 @@ with lib; {
   
   config = mkMerge [
     ({
-      myPackages = with pkgs; [
+      myPackages = with pkgs-unstable; [
         # CLI tools start here
         htop
         btop
@@ -112,7 +112,7 @@ with lib; {
 
       programs.gnupg.agent = {
         enable = true;
-        pinentryPackage = pkgs.pinentry-tty;
+        pinentryPackage = pkgs-unstable.pinentry-tty;
       };
 
       programs.ssh.startAgent = true;
@@ -124,13 +124,13 @@ with lib; {
         let
           packages = builtins.map (p: "${p.name}")
             (config.environment.systemPackages ++ config.users.users.${config.myUser.primary}.packages);
-          sortedUnique = builtins.sort builtins.lessThan (pkgs.lib.lists.unique packages);
+          sortedUnique = builtins.sort builtins.lessThan (pkgs-unstable.lib.lists.unique packages);
           formatted = builtins.concatStringsSep "\n" sortedUnique;
         in
           formatted;
     })
     (mkIf config.myGraphical.enable {
-      myPackages = with pkgs; [
+      myPackages = with pkgs-unstable; [
         # Graphical apps
         alacritty
         keepassxc
@@ -176,7 +176,7 @@ with lib; {
 
       programs.obs-studio = {
         enable = true;
-        plugins = with pkgs.obs-studio-plugins; [
+        plugins = with pkgs-unstable.obs-studio-plugins; [
           obs-composite-blur
           obs-backgroundremoval
         ];
@@ -185,14 +185,14 @@ with lib; {
       services.psd.enable = true;
       services.transmission = {
         enable = true;
-        package = pkgs.transmission_4;
+        package = pkgs-unstable.transmission_4;
         openPeerPorts = true;
       };
       systemd.services.transmission = {
         enable = false;
       };
   
-      fonts.packages = with pkgs; [
+      fonts.packages = with pkgs-unstable; [
         dejavu_fonts
         noto-fonts-cjk-serif
         noto-fonts-cjk-sans
@@ -240,7 +240,7 @@ with lib; {
       };
       xdg.portal = {
         enable = true;
-        extraPortals = with pkgs; [
+        extraPortals = with pkgs-unstable; [
           xdg-desktop-portal-gtk
         ];
         config.common.default = "gtk";

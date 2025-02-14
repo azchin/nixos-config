@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 with lib; {
   options = with types; {
@@ -22,15 +22,15 @@ with lib; {
         enable = true;
         theme = {
           name = "Arc-Darker";
-          package = pkgs.arc-theme;
+          package = pkgs-unstable.arc-theme;
         };
         iconTheme = {
           name = "Papirus";
-          package = pkgs.papirus-icon-theme;
+          package = pkgs-unstable.papirus-icon-theme;
         };
         cursorTheme = {
           name = "capitaine-cursors-white";
-          package = pkgs.capitaine-cursors;
+          package = pkgs-unstable.capitaine-cursors;
           size = config.myCursorSize;
         };
         indicators = [

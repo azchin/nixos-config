@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 {
   options = {
@@ -23,7 +23,7 @@
       autoRepeatDelay = 400;
     };
     
-    myPackages = with pkgs; [
+    myPackages = with pkgs-unstable; [
       emacs-gtk
       xorg.xrdb
       xorg.xset
