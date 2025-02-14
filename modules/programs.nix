@@ -13,7 +13,6 @@
     (lib.mkIf config.myFirefox.enable {
       programs.firefox = {
         enable = true;
-        # package = pkgs.firefox-bin; # FIXME https://github.com/NixOS/nixpkgs/issues/332540
         preferences = {
           "browser.aboutConfig.showWarning" = false;
           "browser.compactmode.show" = true;

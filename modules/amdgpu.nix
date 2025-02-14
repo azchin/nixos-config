@@ -19,7 +19,7 @@
       enable = true;
       # FIXME https://github.com/NixOS/nixpkgs/issues/376930
       # FIXME https://github.com/NixOS/nixpkgs/pull/373234
-      package = pkgs-stable.ollama;
+      # package = pkgs-stable.ollama;
       acceleration = "rocm"; 
       rocmOverrideGfx = "11.0.0";
     };
