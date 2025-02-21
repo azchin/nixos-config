@@ -13,6 +13,8 @@
     (lib.mkIf config.myFirefox.enable {
       programs.firefox = {
         enable = true;
+        # NOTE https://bugzilla.mozilla.org/show_bug.cgi?id=1921742
+        # NOTE https://bugzilla.mozilla.org/show_bug.cgi?id=1947617
         preferences = {
           "browser.aboutConfig.showWarning" = false;
           "browser.compactmode.show" = true;
