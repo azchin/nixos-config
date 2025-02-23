@@ -105,6 +105,7 @@ with lib; {
         glxinfo
         usbutils
         speedtest-cli
+        acpi
       ];
 
       myDocker.enable = mkDefault true;

@@ -56,6 +56,11 @@ with lib; {
       default = "wg0";
       description = "Wireguard interface";
     };
+    myWireguard.additionalAllowedIPs = mkOption {
+      type = listOf str;
+      default = [];
+      description = "Wireguard additional allowed IPs";
+    };
   };
   config = mkMerge [
     (mkIf config.mySSH.enable {
@@ -89,12 +94,12 @@ with lib; {
               publicKey = config.myWireguard.publicKey;
               presharedKey = config.myWireguard.presharedKey;
               endpoint = "${config.myWireguard.endpoint}:${toString config.myWireguard.port}";
-              allowedIPs = if config.myWireguard.mode == "devices" then [
+              allowedIPs = (if config.myWireguard.mode == "devices" then [
                 "10.100.0.0/24"
                 "fd08:4711::/64"
               ]
               else if config.myWireguard.mode == "everything" then [ "0.0.0.0/0" "::/0" ]
-              else [ ];
+              else [ ]) ++ config.myWireguard.additionalAllowedIPs;
               persistentKeepalive = 25;
             }
           ];
