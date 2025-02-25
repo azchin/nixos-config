@@ -22,7 +22,7 @@
       autoRepeatInterval = 25;
       autoRepeatDelay = 400;
     };
-    
+
     myPackages = with pkgs-unstable; [
       emacs-gtk
       xorg.xrdb

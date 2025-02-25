@@ -28,6 +28,7 @@ with lib; {
         tealdeer
         tokei
         fzf
+        bat
         ncdu
         psmisc
         sshpass
@@ -255,6 +256,7 @@ with lib; {
           {
             settings = {
               "org/gnome/desktop/interface" = { cursor-theme = "capitaine-cursors-white"; };
+              "org/gnome/desktop/wm/preferences" = { button-layout = ""; };
             };
           }
         ];

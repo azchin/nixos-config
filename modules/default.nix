@@ -8,7 +8,9 @@
     ./kwallet.nix
     ./awesomewm.nix
     ./minimal.nix
+    ./wayland.nix
     ./hypr.nix
+    ./river.nix
     ./dwm
     ./programs.nix
     ./amdgpu.nix

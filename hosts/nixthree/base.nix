@@ -22,6 +22,7 @@
   mySSH.enable = true;
   myDesktop.enable = true;
   myHypr.enable = true;
+  myRiver.enable = true;
   myX11.dpi = 96;
   myCursorSize = 36;
   myGaming.enable = true;
