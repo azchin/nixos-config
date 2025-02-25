@@ -62,73 +62,80 @@ with lib; {
       description = "Wireguard additional allowed IPs";
     };
   };
-  config = mkMerge [
-    (mkIf config.mySSH.enable {
-      # by default sets up sshd jail
-      # by default sets up services.openssh.logLevel to verbose
-      services.fail2ban.enable = true;
-      services.openssh = {
-        enable = true;
-        settings = {
-          PasswordAuthentication = false; 
-          PermitRootLogin = "no";
-          AllowUsers = [ config.myUser.primary ];
-        };
-        ports = [ config.mySSH.port ];
-      };
-    })
-    (mkIf config.myWireguard.enable {
-      networking.firewall.allowedUDPPorts = [ config.myWireguard.port ];
-      networking.wg-quick.interfaces = {
-        ${config.myWireguard.interface} = {
-          autostart = config.myWireguard.autostart;
-          listenPort = config.myWireguard.port;
-          address = [
-            "10.100.0.${toString config.myWireguard.index}/32"
-            "fd08:4711::${toString config.myWireguard.index}/128"
-          ];
-          privateKey = config.myWireguard.privateKey;
-          dns = [ config.myWireguard.endpoint ];
-          peers = [
-            {
-              publicKey = config.myWireguard.publicKey;
-              presharedKey = config.myWireguard.presharedKey;
-              endpoint = "${config.myWireguard.endpoint}:${toString config.myWireguard.port}";
-              allowedIPs = (if config.myWireguard.mode == "devices" then [
-                "10.100.0.0/24"
-                "fd08:4711::/64"
-              ]
-              else if config.myWireguard.mode == "everything" then [ "0.0.0.0/0" "::/0" ]
-              else [ ]) ++ config.myWireguard.additionalAllowedIPs;
-              persistentKeepalive = 25;
-            }
-          ];
-        };
-      };
-    })
-    (mkIf (config.mySSH.enable && config.myWireguard.enable && config.myWireguard.mode != "dns") {
-      services.openssh = {
-        listenAddresses = [
+  config =
+    let
+      interfaceEverything = "${config.myWireguard.interface}-everything";
+      interfaceDNS = "${config.myWireguard.interface}-dns";
+      remoteOverVPN = config.myWireguard.enable && config.myWireguard.mode == "everything";
+      declareWgInterface = modeStr: allowedIPs: {
+        autostart = config.myWireguard.autostart && config.myWireguard.mode == modeStr;
+        listenPort = config.myWireguard.port;
+        address = [
+          "10.100.0.${toString config.myWireguard.index}/32"
+          "fd08:4711::${toString config.myWireguard.index}/128"
+        ];
+        privateKey = config.myWireguard.privateKey;
+        dns = [ config.myWireguard.endpoint ];
+        peers = [
           {
-            addr = "10.100.0.${toString config.myWireguard.index}";
-            port = config.mySSH.port;
+            publicKey = config.myWireguard.publicKey;
+            presharedKey = config.myWireguard.presharedKey;
+            endpoint = "${config.myWireguard.endpoint}:${toString config.myWireguard.port}";
+            allowedIPs = allowedIPs ++ config.myWireguard.additionalAllowedIPs;
+            persistentKeepalive = 25;
           }
         ];
       };
-      systemd.services.sshd = {
-        after = [ "wg-quick-${config.myWireguard.interface}.service" ];
-        wants = [ "wg-quick-${config.myWireguard.interface}.service" ];
-      };
-      networking.firewall.interfaces = {
-        ${config.myWireguard.interface} = {
-          allowedTCPPorts = [
-            config.mySSH.port
-          ];
-        };
-      };
-    })
-    (mkIf (config.mySSH.enable && (!config.myWireguard.enable || config.myWireguard.mode == "dns")) {
-      networking.firewall.allowedTCPPorts = [ config.mySSH.port ];
-    })
-  ];
+    in
+      mkMerge [
+        (mkIf config.mySSH.enable {
+          # by default sets up sshd jail
+          # by default sets up services.openssh.logLevel to verbose
+          services.fail2ban.enable = true;
+          services.openssh = {
+            enable = true;
+            settings = {
+              PasswordAuthentication = false; 
+              PermitRootLogin = "no";
+              AllowUsers = [ config.myUser.primary ];
+            };
+            ports = [ config.mySSH.port ];
+          };
+        })
+        (mkIf config.myWireguard.enable {
+          networking.firewall.allowedUDPPorts = [ config.myWireguard.port ];
+          networking.wg-quick.interfaces = {
+            ${config.myWireguard.interface} =
+              declareWgInterface "devices" [ "10.100.0.0/24" "fd08:4711::/64" ];
+            ${interfaceEverything} =
+              declareWgInterface "everything" [ "0.0.0.0/0" "::/0" ];
+            ${interfaceDNS} =
+              declareWgInterface "dns" [ ];
+          };
+        })
+        (mkIf (config.mySSH.enable && remoteOverVPN) {
+          services.openssh = {
+            listenAddresses = [
+              {
+                addr = "10.100.0.${toString config.myWireguard.index}";
+                port = config.mySSH.port;
+              }
+            ];
+          };
+          systemd.services.sshd = {
+            after = [ "wg-quick-${interfaceEverything}.service" ];
+            wants = [ "wg-quick-${interfaceEverything}.service" ];
+          };
+          networking.firewall.interfaces = {
+            ${config.myWireguard.interface} = {
+              allowedTCPPorts = [
+                config.mySSH.port
+              ];
+            };
+          };
+        })
+        (mkIf (config.mySSH.enable && !remoteOverVPN) {
+          networking.firewall.allowedTCPPorts = [ config.mySSH.port ];
+        })
+      ];
 }

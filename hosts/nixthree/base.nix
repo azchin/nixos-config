@@ -18,7 +18,6 @@
   nixoneNetwork.enable = true;
   myWireguard.enable = true;
   myWireguard.mode = "devices";
-  # myWireguard.mode = "everything";
   mySSH.enable = true;
   myDesktop.enable = true;
   myHypr.enable = true;
