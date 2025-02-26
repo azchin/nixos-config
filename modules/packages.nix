@@ -71,6 +71,7 @@ with lib; {
         lynx
         sqlite
         foremost
+        inxi
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         # More utilities
