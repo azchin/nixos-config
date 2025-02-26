@@ -46,6 +46,13 @@ with lib; {
           numpy
           scipy
           pipx
+          llm
+          llm-ollama 
+          llm-cmd
+          # TODO figure out how to package these things
+          # llm-cmd-comp
+          # llm-python
+          # llm-jq
         ]))
         man
         man-pages
