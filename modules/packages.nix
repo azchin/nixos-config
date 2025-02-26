@@ -45,6 +45,7 @@ with lib; {
           ropper
           numpy
           scipy
+          pipx
         ]))
         man
         man-pages
