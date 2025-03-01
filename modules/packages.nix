@@ -80,6 +80,7 @@ with lib; {
         sqlite
         foremost
         inxi
+        eza
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         # More utilities
