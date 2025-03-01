@@ -166,7 +166,7 @@ with lib; {
         inkscape
         musescore
         reaper
-        kdenlive
+        kdePackages.kdenlive
         ghidra
         stremio
         discord-canary
