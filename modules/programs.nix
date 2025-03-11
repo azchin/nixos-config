@@ -15,13 +15,14 @@
         enable = true;
         # NOTE https://bugzilla.mozilla.org/show_bug.cgi?id=1921742
         # NOTE https://bugzilla.mozilla.org/show_bug.cgi?id=1947617
+        # package = pkgs-unstable.librewolf;
         preferences = {
           "browser.aboutConfig.showWarning" = false;
           "browser.compactmode.show" = true;
           "browser.tabs.insertAfterCurrent" = true;
           "browser.tabs.hoverPreview.showThumbnails" = false;
           "findbar.highlightAll" = true;
-          "browser.sessionstore.interval" = 60000;
+          "browser.sessionstore.interval" = 6000;
           "extensions.pocket.enabled" = false;
           "media.ffmpeg.vaapi.enabled" = true;
           "media.ffvpx.enabled" = false;

@@ -117,6 +117,9 @@ with lib; {
         usbutils
         speedtest-cli
         acpi
+        dmidecode
+        ntfs3g
+        dosfstools
       ];
 
       myDocker.enable = mkDefault true;
@@ -140,6 +143,9 @@ with lib; {
           formatted = builtins.concatStringsSep "\n" sortedUnique;
         in
           formatted;
+
+      # FIXME remove
+      # myHomeManager.enable = mkDefault true;
     })
     (mkIf config.myGraphical.enable {
       myPackages = with pkgs-unstable; [
@@ -170,6 +176,7 @@ with lib; {
         ghidra
         stremio
         discord-canary
+        kooha
         # Things to try later
         # reaper
         # xournalpp

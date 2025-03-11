@@ -19,5 +19,6 @@
     ./users.nix
     ./logind.nix
     ./network.nix
+    ./home-manager
   ];
 }
