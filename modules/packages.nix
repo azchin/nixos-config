@@ -32,11 +32,13 @@ with lib; {
         ncdu
         psmisc
         sshpass
+        pass
         zip
         unzip
         yq
         jq
         gdb
+        grpcurl
         (python3.withPackages (p: with p; [
           pip
           virtualenv
@@ -81,6 +83,8 @@ with lib; {
         foremost
         inxi
         eza
+        nodejs_18
+        pnpm
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         # More utilities
@@ -177,6 +181,7 @@ with lib; {
         stremio
         discord-canary
         kooha
+        easyeffects
         # Things to try later
         # reaper
         # xournalpp
