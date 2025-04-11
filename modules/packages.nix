@@ -51,6 +51,7 @@ with lib; {
           llm
           llm-ollama 
           llm-cmd
+          pyyaml
           # TODO figure out how to package these things
           # llm-cmd-comp
           # llm-python
@@ -85,8 +86,10 @@ with lib; {
         eza
         nodejs_18
         pnpm
+        protobuf
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
+        go
         # More utilities
         yt-dlp
         ffmpeg-full
@@ -182,6 +185,7 @@ with lib; {
         discord-canary
         kooha
         easyeffects
+        vscode
         # Things to try later
         # reaper
         # xournalpp
