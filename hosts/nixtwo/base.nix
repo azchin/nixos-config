@@ -16,10 +16,12 @@
   myWireguard.enable = true;
   myWireguard.mode = "devices";
   myLaptop.enable = true;
-  myAwesomewm.enable = true;
+  myAwesomewm.enable = false;
+  myHypr.enable = true;
   myX11.dpi = 138;
   myCursorSize = 36;
   myGaming.enable = false;
+  powerManagement.powertop.enable = lib.mkForce false;
   
   # Hardware configuration
   nixtwoHardware.enable = true;

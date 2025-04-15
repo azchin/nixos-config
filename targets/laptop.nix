@@ -12,6 +12,7 @@
     ];
     myLogind.enable = true;
     powerManagement.powertop.enable = true;
+    services.upower.enable = true;
     services.auto-cpufreq = {
       enable = true;
       settings = {

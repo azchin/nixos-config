@@ -131,6 +131,7 @@ with lib; {
         dmidecode
         ntfs3g
         dosfstools
+        qmk
       ];
 
       myDocker.enable = mkDefault true;
