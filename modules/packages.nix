@@ -52,11 +52,13 @@ with lib; {
           llm-ollama 
           llm-cmd
           pyyaml
+          # uv
           # TODO figure out how to package these things
           # llm-cmd-comp
           # llm-python
           # llm-jq
         ]))
+        # Build systems
         man
         man-pages
         poppler_utils
@@ -70,6 +72,14 @@ with lib; {
         pyright
         ccls
         bear
+        nodejs_18
+        pnpm
+        protobuf
+        uv
+        # Alternative is to use https://github.com/oxalica/rust-overlay
+        rustup
+        go
+        # More utilities
         qemu
         quickemu
         spice
@@ -84,13 +94,6 @@ with lib; {
         foremost
         inxi
         eza
-        nodejs_18
-        pnpm
-        protobuf
-        # Alternative is to use https://github.com/oxalica/rust-overlay
-        rustup
-        go
-        # More utilities
         yt-dlp
         ffmpeg-full
         imagemagick
@@ -103,6 +106,7 @@ with lib; {
         httpie
         insomnia
         appimage-run
+        aider-chat
         # Security tools
         pkgs-pwndbg.default
         dig
@@ -295,7 +299,7 @@ with lib; {
       services.pipewire = {
         enable = true;
         pulse.enable = true;
-        jack.enable = true;
+        # jack.enable = true; # messes up ld_library_path
         wireplumber.enable = true;
       };
 
