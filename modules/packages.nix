@@ -52,6 +52,9 @@ with lib; {
           llm-ollama 
           llm-cmd
           pyyaml
+          python-lsp-server
+          ruff
+          python-lsp-ruff
           # uv
           # TODO figure out how to package these things
           # llm-cmd-comp
@@ -191,6 +194,7 @@ with lib; {
         kooha
         easyeffects
         vscode
+        code-cursor
         # Things to try later
         # reaper
         # xournalpp
