@@ -11,10 +11,9 @@
       light
     ];
     myLogind.enable = true;
-    powerManagement.powertop.enable = true;
     services.upower.enable = true;
     services.auto-cpufreq = {
-      enable = true;
+      enable = false; # disable due to conflicts with power-profiles-daemon
       settings = {
         battery = {
           governor = "powersave";

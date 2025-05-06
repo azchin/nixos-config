@@ -6,8 +6,6 @@
   };
   
   config = lib.mkIf config.myIntelgpu.enable {
-    hardware.graphics.enable = true;
-
     environment.systemPackages = with pkgs-unstable; [
       intel-gpu-tools
     ];

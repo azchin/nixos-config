@@ -75,7 +75,6 @@ with lib; {
         pyright
         ccls
         bear
-        nodejs_18
         pnpm
         protobuf
         uv

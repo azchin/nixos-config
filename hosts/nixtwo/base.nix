@@ -21,7 +21,6 @@
   myX11.dpi = 138;
   myCursorSize = 36;
   myGaming.enable = false;
-  powerManagement.powertop.enable = lib.mkForce false;
   
   # Hardware configuration
   nixtwoHardware.enable = true;
@@ -30,7 +29,9 @@
   myEFI.enable = true;
 
   # Graphics
-  myIntelgpu.enable = true;
+  myAmdgpu.enable = true;
+  myOllama.enable = true;
+  services.ollama.rocmOverrideGfx = lib.mkForce "11.5.2";
 
   # Install programs specific for this host
   # environment.systemPackages = with pkgs; [
