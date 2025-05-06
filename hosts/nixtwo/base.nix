@@ -30,8 +30,15 @@
 
   # Graphics
   myAmdgpu.enable = true;
-  myOllama.enable = true;
-  services.ollama.rocmOverrideGfx = lib.mkForce "11.5.2";
+  # TODO https://github.com/ollama/ollama/pull/6282
+  myOllama.enable = false;
+  services.ollama = {
+    rocmOverrideGfx = lib.mkForce "11.5.2";
+    environmentVariables = {
+      OLLAMA_MAX_LOADED_MODELS = "1";
+      OLLAMA_NUM_PARALLEL = "1";
+    };
+  };
 
   # Install programs specific for this host
   # environment.systemPackages = with pkgs; [
