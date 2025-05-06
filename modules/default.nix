@@ -16,6 +16,7 @@
     ./amdgpu.nix
     ./intelgpu.nix
     ./efi.nix
+    ./grub.nix
     ./users.nix
     ./logind.nix
     ./network.nix
