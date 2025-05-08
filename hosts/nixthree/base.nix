@@ -31,7 +31,6 @@
 
   # Graphics
   myAmdgpu.enable = true;
-  myOllama.enable = true;
   
   # Install programs specific for this host
   environment.systemPackages = with pkgs-unstable; [

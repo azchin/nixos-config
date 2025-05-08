@@ -47,14 +47,15 @@ with lib; {
           ropper
           numpy
           scipy
+          pandas
           pipx
           llm
           llm-ollama 
           llm-cmd
           pyyaml
           python-lsp-server
-          ruff
-          python-lsp-ruff
+          # ruff
+          # python-lsp-ruff
           # uv
           # TODO figure out how to package these things
           # llm-cmd-comp
@@ -72,7 +73,7 @@ with lib; {
         gnumake
         ninja
         meson # apparently this is nice?
-        pyright
+        # pyright
         ccls
         bear
         pnpm

@@ -6,11 +6,6 @@
   };
   
   config = lib.mkIf config.myAmdgpu.enable {
-    # Overclock
-    boot.extraModprobeConfig = ''
-      options amdgpu ppfeaturemask=0xfffd7fff
-    '';
-    
     hardware.amdgpu.opencl.enable = true;
     
     myPackages = with pkgs-unstable; [

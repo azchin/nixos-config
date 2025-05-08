@@ -15,7 +15,6 @@
     ./programs.nix
     ./amdgpu.nix
     ./intelgpu.nix
-    ./ollama.nix
     ./efi.nix
     ./grub.nix
     ./users.nix
