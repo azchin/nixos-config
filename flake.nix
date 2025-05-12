@@ -37,7 +37,14 @@
               pkgs-unstable = import nixpkgs {
                 inherit system;
                 config.allowUnfree = true;
-                overlays = [ nur.overlays.default ];
+                overlays = [ 
+                  nur.overlays.default 
+                  (self: super: {
+                    mpv = super.mpv.override {
+                      scripts = [ self.mpvScripts.mpris ];
+                    };
+                  })
+                ];
               };
               pkgs-stable = import nixpkgs-stable {
                 inherit system;

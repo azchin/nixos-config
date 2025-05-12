@@ -22,6 +22,7 @@ with lib; {
         file
         git
         git-lfs
+        git-extras
         tmux
         ripgrep
         fd

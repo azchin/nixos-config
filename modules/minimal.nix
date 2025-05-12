@@ -32,6 +32,7 @@
       dunst
     ];
 
+    services.playerctld.enable = true;
     services.gvfs.enable = true;
 
     qt = {
