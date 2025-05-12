@@ -68,6 +68,10 @@
             specialArgs = provideArgs favourite // { inherit disko; };
             modules = [ ./hosts/nixthree ] ++ extraModules;
           };
+          nixfour = nixpkgs.lib.nixosSystem {
+            specialArgs = provideArgs favourite // { inherit disko; };
+            modules = [ ./hosts/nixfour ] ++ extraModules;
+          };
         };
     };
 }
