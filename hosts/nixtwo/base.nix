@@ -34,6 +34,7 @@
   # LVFS
   # https://wiki.archlinux.org/title/Fwupd
   services.fwupd.enable = true;
+  hardware.cpu.x86.msr.enable = true;
 
   # Install programs specific for this host
   # environment.systemPackages = with pkgs; [
