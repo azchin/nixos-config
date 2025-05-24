@@ -30,7 +30,7 @@ with lib; {
         tokei
         fzf
         bat
-        ncdu
+        gdu
         psmisc
         sshpass
         pass

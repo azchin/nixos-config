@@ -31,6 +31,11 @@
           "gfx.webrender.all" = true;
           "browser.urlbar.placeholderName" = "DuckDuckGo";
           "browser.urlbar.placeholderName.private" = "DuckDuckGo";
+          "sidebar.revamp" = true;
+          "sidebar.verticalTabs" = true;
+          "sidebar.visibility" = "expand-on-hover";
+          "sidebar.animation.expand-on-hover.duration-ms" = 150;
+          "sidebar.expandOnHover" = true;
         };
         preferencesStatus = "default";
       };
