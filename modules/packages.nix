@@ -132,6 +132,7 @@ with lib; {
         usbutils
         speedtest-cli
         acpi
+        sysfsutils
         dmidecode
         ntfs3g
         dosfstools

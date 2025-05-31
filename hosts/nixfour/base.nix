@@ -16,17 +16,19 @@
 
   # Configure custom modules
   nixoneNetwork.enable = true;
-  myWireguard.enable = true;
+  myWireguard.enable = false;
   myWireguard.mode = "devices";
   mySSH.enable = true;
   myHypr.enable = true;
   myX11.dpi = 96;
   myCursorSize = 36;
+  myGaming.enable = true;
   
   # Bootloader
   myEFI.enable = true;
 
   # Ethernet module
+  boot.kernelModules = [ "r8152" ];
   boot.extraModprobeConfig = ''
     options r8152 autosuspend=0
   '';

@@ -137,5 +137,8 @@ with lib; {
         (mkIf (config.mySSH.enable && !remoteOverVPN) {
           networking.firewall.allowedTCPPorts = [ config.mySSH.port ];
         })
+        (mkIf (!config.myWireguard.enable) {
+          networking.nameservers = ["9.9.9.9"];
+        })
       ];
 }
