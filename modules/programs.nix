@@ -37,7 +37,7 @@
           "sidebar.animation.expand-on-hover.duration-ms" = 150;
           "sidebar.expandOnHover" = true;
         };
-        preferencesStatus = "default";
+        preferencesStatus = "locked";
       };
     })
     (lib.mkIf config.myVirtualbox.enable {
