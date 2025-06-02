@@ -28,8 +28,8 @@
   myEFI.enable = true;
 
   # Ethernet module
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    (callPackage ../../modules/r8152.nix {})
+  boot.extraModulePackages = [
+    pkgs-unstable.linuxPackages_latest.realtek-r8152-driver
   ];
   boot.kernelModules = [ "r8152" ];
   services.udev.extraRules = ''

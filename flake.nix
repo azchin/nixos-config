@@ -21,9 +21,13 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    realtek-r8152-linux = {
+      url = "github:wget/realtek-r8152-linux/v2.20.1";
+      flake = false;  # This is just source code, not a flake
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko, home-manager, nur }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko, home-manager, nur, realtek-r8152-linux }@inputs:
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
     # https://nix.dev/manual/nix/2.18/language/constructs
     # TODO https://flake.parts/
@@ -40,8 +44,16 @@
                 overlays = [ 
                   nur.overlays.default 
                   (self: super: {
+                    # add mpris controls to mpv
                     mpv = super.mpv.override {
                       scripts = [ self.mpvScripts.mpris ];
+                    };
+                    # r8152 kernel module
+                    linuxPackages_latest = super.linuxPackages_latest // {
+                      realtek-r8152-driver = super.callPackage ./modules/r8152.nix {
+                        kernel = super.linuxPackages_latest.kernel;
+                        inherit realtek-r8152-linux;
+                      };
                     };
                   })
                 ];
@@ -53,7 +65,7 @@
               pkgs-pwndbg = pwndbg.packages.${system};
             in
               {
-                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware home-manager; 
+                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware home-manager realtek-r8152-linux; 
               };
         in {
           nixone = nixpkgs.lib.nixosSystem {

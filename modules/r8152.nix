@@ -1,15 +1,11 @@
-{ lib, stdenv, fetchFromGitHub, kernel, kmod }:
+{ lib, stdenv, kernel, kmod, realtek-r8152-linux }:
 
 stdenv.mkDerivation rec {
   pname = "r8152";
   version = "2.20.1";
 
-  src = fetchFromGitHub {
-    owner = "wget";
-    repo = "realtek-r8152-linux";
-    rev = "v${version}";
-    sha256 = "sha256-c84VZBShuTbz4/u3SI1b8V5strWiOwam4vZfqaTFRW4=";
-  };
+  # Use the pinned source from flake input instead of fetchFromGitHub
+  src = realtek-r8152-linux;
 
   hardeningDisable = [ "pic" ];
 
@@ -38,23 +34,24 @@ stdenv.mkDerivation rec {
     export ARCH="x86_64"
   '';
 
-  makeFlags = [
-    "KERNELRELEASE=${kernel.modDirVersion}"
-    "KERNEL_DIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
-    "KVER=${kernel.modDirVersion}"
-    "VERSION=$(echo ${kernel.modDirVersion} | cut -d. -f1)"
-    "PATCHLEVEL=$(echo ${kernel.modDirVersion} | cut -d. -f2)" 
-    "SUBLEVEL=$(echo ${kernel.modDirVersion} | cut -d. -f3)"
-  ];
-
   # Custom build phase to handle the driver compilation properly
   buildPhase = ''
     runHook preBuild
     
-    # Run make with verbose output to see what's happening
+    # Parse kernel version numbers that the Makefile expects
+    VERSION=$(echo "${kernel.modDirVersion}" | cut -d. -f1)
+    PATCHLEVEL=$(echo "${kernel.modDirVersion}" | cut -d. -f2)
+    SUBLEVEL=$(echo "${kernel.modDirVersion}" | cut -d. -f3)
+    
+    echo "Building with VERSION=$VERSION PATCHLEVEL=$PATCHLEVEL SUBLEVEL=$SUBLEVEL"
+    
+    # Run make with all the variables properly set
     make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD modules \
       KERNELRELEASE=${kernel.modDirVersion} \
       KVER=${kernel.modDirVersion} \
+      VERSION=$VERSION \
+      PATCHLEVEL=$PATCHLEVEL \
+      SUBLEVEL=$SUBLEVEL \
       V=1
       
     runHook postBuild

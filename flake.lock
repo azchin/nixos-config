@@ -204,6 +204,23 @@
         "type": "github"
       }
     },
+    "realtek-r8152-linux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748201968,
+        "narHash": "sha256-c84VZBShuTbz4/u3SI1b8V5strWiOwam4vZfqaTFRW4=",
+        "owner": "wget",
+        "repo": "realtek-r8152-linux",
+        "rev": "8ee2d3108fdb55c71ba173f4015534054e9db6bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wget",
+        "ref": "v2.20.1",
+        "repo": "realtek-r8152-linux",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -212,7 +229,8 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
-        "pwndbg": "pwndbg"
+        "pwndbg": "pwndbg",
+        "realtek-r8152-linux": "realtek-r8152-linux"
       }
     },
     "treefmt-nix": {
