@@ -15,9 +15,9 @@
   time.timeZone = "America/New_York";
 
   # Configure custom modules
-  nixoneNetwork.enable = true;
-  myWireguard.enable = false;
-  myWireguard.mode = "devices";
+  nixtwoNetwork.enable = true;
+  myWireguard.enable = true;
+  myWireguard.mode = "everything";
   mySSH.enable = true;
   myHypr.enable = true;
   myX11.dpi = 96;

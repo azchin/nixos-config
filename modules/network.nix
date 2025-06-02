@@ -75,7 +75,7 @@ with lib; {
           "fd08:4711::${toString config.myWireguard.index}/128"
         ];
         privateKey = config.myWireguard.privateKey;
-        dns = [ config.myWireguard.endpoint ];
+        dns = [ "9.9.9.9" ];
         peers = [
           {
             publicKey = config.myWireguard.publicKey;
