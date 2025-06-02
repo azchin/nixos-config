@@ -137,6 +137,7 @@ with lib; {
         ntfs3g
         dosfstools
         qmk
+        ethtool
       ];
 
       myDocker.enable = mkDefault true;

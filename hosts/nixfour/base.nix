@@ -28,9 +28,14 @@
   myEFI.enable = true;
 
   # Ethernet module
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    (callPackage ../../modules/r8152.nix {})
+  ];
   boot.kernelModules = [ "r8152" ];
-  boot.extraModprobeConfig = ''
-    options r8152 autosuspend=0
+  services.udev.extraRules = ''
+    # Disable USB autosuspend for RTL8156 (your device)
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/control}="on"
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="-1"
   '';
 
   # Graphics
