@@ -4,7 +4,7 @@
   imports = [
     disko.nixosModules.disko
     ../../configuration.nix
-    ../../private/disko-nixthree.nix # same disk format, TODO export
+    ../../private/disko-nixfour.nix
     ../../private/hardware-nixfour.nix
   ];
 
