@@ -55,6 +55,7 @@ with lib; {
           llm-cmd
           pyyaml
           python-lsp-server
+          jinja2
           # ruff
           # python-lsp-ruff
           # uv
@@ -76,6 +77,7 @@ with lib; {
         meson # apparently this is nice?
         # pyright
         ccls
+        ruff
         bear
         pnpm
         protobuf
@@ -198,6 +200,7 @@ with lib; {
         easyeffects
         vscode
         code-cursor
+        logseq
         # Things to try later
         # reaper
         # xournalpp
