@@ -36,6 +36,7 @@ with lib; {
         pass
         zip
         unzip
+        p7zip
         yq
         jq
         gdb
