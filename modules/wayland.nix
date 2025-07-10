@@ -13,7 +13,7 @@
       wl-clipboard
       rofi-wayland
       emacs30-pgtk
-      waybar
+      pkgs-stable.waybar # FIXME https://github.com/Alexays/Waybar/issues/4231
       slurp
       grim
       nwg-look
