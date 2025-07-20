@@ -88,6 +88,9 @@ with lib; {
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         go
+        # nix
+        nh
+        nix-output-monitor
         # More utilities
         qemu
         quickemu

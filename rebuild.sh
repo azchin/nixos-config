@@ -23,7 +23,7 @@ case $cmd in
     upgrade)
         echo "Upgrading!"
         nix flake update
-        sudo nixos-rebuild switch --upgrade --flake . \
+        nh os switch --upgrade . \
             || (echo "nixos-rebuild failed, continue? [y/N]"; read answer; [ "$answer" = "y" ]) \
             || restore_git_exit
         restore_git
@@ -32,7 +32,7 @@ case $cmd in
         ;;
     switch|boot|test|build)
         echo "sudo nixos-rebuild $cmd $@ --flake . || restore_git_exit"
-        sudo nixos-rebuild $cmd $@ --flake . || restore_git_exit
+        nh os $cmd $@ . || restore_git_exit
         restore_git
         ;;
     bootloader)
