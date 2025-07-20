@@ -109,6 +109,7 @@ with lib; {
         hunspellDicts.en-us
         hunspellDicts.en-ca
         yubikey-manager
+        yubioath-flutter
         nvimpager
         httpie
         insomnia
@@ -141,6 +142,7 @@ with lib; {
         dosfstools
         qmk
         ethtool
+        android-udev-rules
       ];
 
       myDocker.enable = mkDefault true;
@@ -150,6 +152,13 @@ with lib; {
         enable = true;
         pinentryPackage = pkgs-unstable.pinentry-tty;
       };
+
+      # yubikey
+      # https://github.com/Yubico/libu2f-host/blob/master/70-u2f.rules
+      services.pcscd.enable = true;
+      services.udev.extraRules = ''
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0113|0114|0115|0116|0120|0121|0200|0402|0403|0406|0407|0410", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+      '';
 
       programs.ssh.startAgent = true;
       services.spice-vdagentd.enable = true;

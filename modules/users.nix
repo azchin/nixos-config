@@ -25,12 +25,13 @@ with lib; {
       isNormalUser = true;
       uid = 1000;
       group = config.myUser.primary;
-      extraGroups = [ "wheel" ] ++ config.myUser.extraGroups; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "plugdev" ] ++ config.myUser.extraGroups; # Enable ‘sudo’ for the user.
       shell = pkgs-unstable.zsh;
       packages = config.myPackages;
     };
 
     users.groups.${config.myUser.primary}.gid = 1000;
+    users.groups.plugdev = {};
 
     programs.zsh.enable = true;
   };
