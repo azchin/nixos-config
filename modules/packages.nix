@@ -57,6 +57,7 @@ with lib; {
           pyyaml
           python-lsp-server
           jinja2
+          jsonschema
           # ruff
           # python-lsp-ruff
           # uv
@@ -76,6 +77,7 @@ with lib; {
         gnumake
         ninja
         meson # apparently this is nice?
+        pkg-config
         # pyright
         ccls
         ruff
@@ -94,6 +96,8 @@ with lib; {
         vagrant
         gocryptfs
         distrobox
+        expect
+        inotify-tools
         nmap
         inetutils
         lynx
