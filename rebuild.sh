@@ -23,7 +23,7 @@ case $cmd in
     upgrade)
         echo "Upgrading!"
         nix flake update
-        nh os switch --upgrade . \
+        nh os switch . \
             || (echo "nixos-rebuild failed, continue? [y/N]"; read answer; [ "$answer" = "y" ]) \
             || restore_git_exit
         restore_git

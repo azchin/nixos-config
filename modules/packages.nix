@@ -96,7 +96,7 @@ with lib; {
         quickemu
         spice
         spice-gtk
-        vagrant
+        # vagrant
         gocryptfs
         distrobox
         expect

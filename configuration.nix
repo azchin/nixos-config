@@ -22,6 +22,18 @@
     options = "--delete-older-than 7d";
   };
 
+  nix.settings = {
+    substituters = [
+      "https://pwndbg.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "pwndbg.cachix.org-1:HhtIpP7j73SnuzLgobqqa8LVTng5Qi36sQtNt79cD3k="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+    trusted-users = [ "root" config.myUser.primary ];
+  };
+
   boot.kernelPackages = pkgs-unstable.linuxPackages_latest;
 
   boot.tmp.useTmpfs = true;
