@@ -14,7 +14,7 @@
   # Configure custom modules
   nixtwoNetwork.enable = true;
   myWireguard.enable = true;
-  myWireguard.mode = "devices";
+  myWireguard.mode = "everything";
   myLaptop.enable = true;
   myAwesomewm.enable = false;
   myHypr.enable = true;

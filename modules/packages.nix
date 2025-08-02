@@ -91,12 +91,15 @@ with lib; {
         # nix
         nh
         nix-output-monitor
+        # libraries
+        openssl
         # More utilities
         qemu
         quickemu
         spice
         spice-gtk
         # vagrant
+        colorized-logs
         gocryptfs
         distrobox
         expect
@@ -132,6 +135,7 @@ with lib; {
         mprime
         lm_sensors
         resources
+        brightnessctl
         # TODO sensors -j into a grapher
         cpu-x
         linuxPackages.cpupower
