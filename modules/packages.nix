@@ -98,8 +98,9 @@ with lib; {
         quickemu
         spice
         spice-gtk
+        gnupg
+        pcsclite
         # vagrant
-        colorized-logs
         gocryptfs
         distrobox
         expect
@@ -125,6 +126,7 @@ with lib; {
         insomnia
         appimage-run
         aider-chat
+        claude-code
         # Security tools
         pkgs-pwndbg.default
         dig
