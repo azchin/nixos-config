@@ -78,6 +78,7 @@ with lib; {
         ninja
         meson # apparently this is nice?
         pkg-config
+        cargo-flamegraph
         # pyright
         ccls
         ruff

@@ -1,5 +1,6 @@
 #!/bin/sh
 set -eu
+NH="${NH:-}"
 dir=$(dirname $(realpath $0))
 cmd="${1:-switch}"
 if [ $# -ge 1 ]; then
@@ -32,7 +33,8 @@ case $cmd in
         ;;
     switch|boot|test|build)
         echo "sudo nixos-rebuild $cmd $@ --flake . || restore_git_exit"
-        nh os $cmd $@ . || restore_git_exit
+        # nh os $cmd $@ . || restore_git_exit
+        sudo nixos-rebuild $cmd $@ --flake . || restore_git_exit
         restore_git
         ;;
     bootloader)
