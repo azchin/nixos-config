@@ -92,6 +92,7 @@ with lib; {
         # nix
         nh
         nix-output-monitor
+        cachix
         # libraries
         openssl
         # More utilities
@@ -129,7 +130,7 @@ with lib; {
         aider-chat
         claude-code
         # Security tools
-        pkgs-pwndbg.default
+        # pkgs-pwndbg.default
         dig
         tcpdump
         nikto
@@ -218,7 +219,7 @@ with lib; {
         reaper
         kdePackages.kdenlive
         ghidra
-        stremio
+        # stremio
         discord-canary
         kooha
         easyeffects

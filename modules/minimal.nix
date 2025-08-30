@@ -16,7 +16,7 @@
       papirus-icon-theme
       capitaine-cursors
       kdePackages.breeze
-      libsForQt5.breeze-qt5
+      # libsForQt5.breeze-qt5
       kdePackages.oxygen-icons
       glib # gsettings
       gsettings-qt

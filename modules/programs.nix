@@ -71,7 +71,6 @@
         enable = true;
         type = "fcitx5";
         fcitx5 = {
-          plasma6Support = true;
           addons = with pkgs-unstable; [
             fcitx5-mozc
             kdePackages.fcitx5-chinese-addons
