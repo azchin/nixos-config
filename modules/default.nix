@@ -10,6 +10,7 @@
     ./minimal.nix
     ./wayland.nix
     ./hypr.nix
+    ./openbox.nix
     ./river.nix
     ./dwm
     ./programs.nix

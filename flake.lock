@@ -61,6 +61,26 @@
         "type": "github"
       }
     },
+    "ida-pro-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751396293,
+        "narHash": "sha256-jCYJmt2uq3cvyBbd5y7x0vj96iAw/pBY34BZ07kJaI4=",
+        "owner": "msanft",
+        "repo": "ida-pro-overlay",
+        "rev": "0b2e82fed6e8a8feef653fc28fe4b88eca310a63",
+        "type": "github"
+      },
+      "original": {
+        "owner": "msanft",
+        "repo": "ida-pro-overlay",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1756245047,
@@ -224,6 +244,7 @@
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
+        "ida-pro-overlay": "ida-pro-overlay",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

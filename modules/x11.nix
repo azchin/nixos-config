@@ -32,8 +32,12 @@
       xorg.xmodmap
       xorg.setxkbmap
       xorg.xdpyinfo
+      xdo
+      xdotool
       lxde.lxrandr
       xclip
+      tint2
+      polybar
       dex # TODO add to autostart.sh, split across hosts
       rofi
       picom
@@ -42,6 +46,8 @@
       xsecurelock
       maim
       arandr
+      sxhkd
+      hsetroot
     ];
   };
 }

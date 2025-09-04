@@ -8,7 +8,6 @@
   config = lib.mkIf config.myDesktop.enable {
     services.logind.settings.Login.HandlePowerKey = "ignore";
     myPackages = with pkgs-unstable; [
-      geekbench
       furmark
       unigine-superposition
     ];

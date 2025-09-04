@@ -25,9 +25,13 @@
       url = "github:wget/realtek-r8152-linux/v2.20.1";
       flake = false;  # This is just source code, not a flake
     };
+    ida-pro-overlay = {
+      url = "github:msanft/ida-pro-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko, home-manager, nur, realtek-r8152-linux }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko, home-manager, nur, realtek-r8152-linux, ida-pro-overlay }@inputs:
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
     # https://nix.dev/manual/nix/2.18/language/constructs
     # TODO https://flake.parts/
@@ -43,6 +47,7 @@
                 config.allowUnfree = true;
                 overlays = [ 
                   nur.overlays.default 
+                  ida-pro-overlay.overlays.default
                   (self: super: {
                     # add mpris controls to mpv
                     mpv = super.mpv.override {
@@ -65,7 +70,7 @@
               pkgs-pwndbg = pwndbg.packages.${system};
             in
               {
-                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware home-manager realtek-r8152-linux; 
+                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware home-manager realtek-r8152-linux ida-pro-overlay; 
               };
         in {
           nixone = nixpkgs.lib.nixosSystem {

@@ -14,10 +14,11 @@
   # Configure custom modules
   nixtwoNetwork.enable = true;
   myWireguard.enable = true;
-  myWireguard.mode = "everything";
+  myWireguard.mode = "devices";
   myLaptop.enable = true;
   myAwesomewm.enable = false;
-  myHypr.enable = true;
+  myHypr.enable = false;
+  myOpenbox.enable = true;
   myX11.dpi = 138;
   myCursorSize = 36;
   myGaming.enable = false;

@@ -135,13 +135,19 @@ with lib; {
         tcpdump
         nikto
         aflplusplus
+        # (callPackage ida-pro { # https://github.com/msanft/ida-pro-overlay
+        #   # Alternatively, fetch the installer through `fetchurl`, use a local path, etc.
+        #   runfile = /nix/store/85k32l846ybn4izf13vs58bvwjxaqqzz-ida-free-pc_91_x64linux.run;
+        # })
         # System utilities
         mprime
         lm_sensors
         resources
         brightnessctl
+        geekbench
         # TODO sensors -j into a grapher
         cpu-x
+        debootstrap
         linuxPackages.cpupower
         nvme-cli
         smartmontools
@@ -154,6 +160,7 @@ with lib; {
         sysfsutils
         dmidecode
         ntfs3g
+        btrfs-progs
         dosfstools
         qmk
         ethtool
@@ -258,6 +265,24 @@ with lib; {
       };
       systemd.services.transmission = {
         enable = false;
+      };
+      # Enable printer discovery on the local network
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
+      services.printing = {
+        enable = true;
+        drivers = with pkgs-unstable; [
+          # Common drivers
+          gutenprint
+          hplip          # HP printers
+          epson-escpr    # Epson printers
+          canon-cups-ufr2 # Canon printers
+          brlaser        # Brother laser printers
+          brgenml1lpr    # Brother inkjet printers
+        ];
       };
   
       fonts.packages = with pkgs-unstable; [
