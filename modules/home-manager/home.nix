@@ -13,7 +13,7 @@
   # https://discourse.nixos.org/t/combining-best-of-system-firefox-and-home-manager-firefox-settings/37721
   # https://github.com/llakala/nixos/blob/3ae839c3b3d5fd4db2b78fa2dbb5ea1080a903cd/apps/programs/firefox/policies.nix
   programs.librewolf = {
-    enable = true;
+    enable = false;
     profiles.${osConfig.myUser.primary} = {
       containers = {
         "Spook" = {
