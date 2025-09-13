@@ -89,6 +89,8 @@ with lib; {
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         go
+        nodePackages_latest.nodejs
+        foundry
         # nix
         nh
         nix-output-monitor
@@ -96,6 +98,8 @@ with lib; {
         # libraries
         openssl
         # More utilities
+        outils
+        hyperfine
         qemu
         quickemu
         spice
