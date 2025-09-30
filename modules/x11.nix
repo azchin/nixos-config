@@ -21,6 +21,8 @@
       # upscaleDefaultCursor = true;
       autoRepeatInterval = 25;
       autoRepeatDelay = 400;
+      
+      synaptics.palmDetect = true;
     };
 
     myPackages = with pkgs-unstable; [
