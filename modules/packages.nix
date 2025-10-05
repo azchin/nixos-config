@@ -95,6 +95,7 @@ with lib; {
         nh
         nix-output-monitor
         cachix
+        devenv
         # libraries
         openssl
         # More utilities
@@ -137,6 +138,7 @@ with lib; {
         # pkgs-pwndbg.default
         dig
         tcpdump
+        wireshark
         nikto
         aflplusplus
         # (callPackage ida-pro { # https://github.com/msanft/ida-pro-overlay
@@ -213,6 +215,7 @@ with lib; {
         nsxiv
         mpv
         transmission_4-gtk
+        android-file-transfer
         brave
         signal-desktop
         audacity
@@ -237,6 +240,7 @@ with lib; {
         vscode
         code-cursor
         logseq
+        gajim
         # Things to try later
         # reaper
         # xournalpp
