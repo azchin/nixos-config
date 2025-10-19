@@ -36,7 +36,7 @@
       xorg.xdpyinfo
       xdo
       xdotool
-      lxde.lxrandr
+      lxrandr
       xclip
       tint2
       polybar
