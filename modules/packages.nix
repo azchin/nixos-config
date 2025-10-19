@@ -73,6 +73,13 @@ with lib; {
         texliveFull
         ghostscript
         gcc
+        pkgsi686Linux.gcc
+        glibc
+        glibc.dev
+        pkgsi686Linux.glibc
+        pkgsi686Linux.glibc.dev
+        gcc_multi
+        glibc_multi
         cmake
         gnumake
         ninja
