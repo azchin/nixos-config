@@ -18,6 +18,7 @@
   nixoneNetwork.enable = true;
   myWireguard.enable = true;
   myWireguard.mode = "everything";
+  myWireguard.autostart = false;
   mySSH.enable = true;
   myDesktop.enable = true;
   myHypr.enable = true;

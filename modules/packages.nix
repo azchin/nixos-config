@@ -1,4 +1,4 @@
-{ config, lib, pkgs-unstable, pkgs-stable, pkgs-pwndbg, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ... }:
 
 with lib; {
   options = with types; {
@@ -69,7 +69,7 @@ with lib; {
         # Build systems
         man
         man-pages
-        poppler_utils
+        poppler-utils
         texliveFull
         ghostscript
         gcc
@@ -142,7 +142,6 @@ with lib; {
         aider-chat
         claude-code
         # Security tools
-        # pkgs-pwndbg.default
         dig
         tcpdump
         wireshark
@@ -166,7 +165,7 @@ with lib; {
         smartmontools
         pciutils
         libva-utils
-        glxinfo
+        mesa-demos
         usbutils
         speedtest-cli
         acpi
@@ -177,7 +176,8 @@ with lib; {
         dosfstools
         qmk
         ethtool
-        android-udev-rules
+        # Libraries
+        icu
       ];
 
       myDocker.enable = mkDefault true;
@@ -234,6 +234,8 @@ with lib; {
         kdePackages.okular
         digikam
         krita
+        pinta
+        gthumb
         neovide
         inkscape
         musescore

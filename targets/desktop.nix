@@ -1,4 +1,4 @@
-{ config, lib, pkgs-unstable, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, pkgs-pwndbg, ... }:
 
 {
   options = {
@@ -10,6 +10,7 @@
     myPackages = with pkgs-unstable; [
       furmark
       unigine-superposition
+      pkgs-pwndbg.default
     ];
 
     # Overclock
@@ -23,6 +24,15 @@
       enable = true;
       acceleration = "rocm"; 
       rocmOverrideGfx = "11.0.0";
+    };
+
+    services.pipewire.extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 256;
+        "default.clock.min-quantum" = 32;
+        "default.clock.max-quantum" = 1024;
+      };
     };
 
     systemd.services.ollama.environment = {
