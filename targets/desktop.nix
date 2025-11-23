@@ -17,11 +17,13 @@
     boot.extraModprobeConfig = ''
       options amdgpu ppfeaturemask=0xfffd7fff
     '';
+
+    systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
     
     # https://github.com/ollama/ollama/blob/main/docs/gpu.md#amd-radeon
     # rocminfo | grep gfx
     services.ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm"; 
       rocmOverrideGfx = "11.0.0";
     };
