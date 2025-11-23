@@ -13,7 +13,7 @@
 
   # Configure custom modules
   nixtwoNetwork.enable = true;
-  myWireguard.enable = true;
+  myWireguard.enable = false;
   myWireguard.mode = "devices";
   myWireguard.autostart = false;
   myLaptop.enable = true;

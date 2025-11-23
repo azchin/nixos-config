@@ -250,6 +250,7 @@ with lib; {
         code-cursor
         logseq
         gajim
+        thunderbird
         # Things to try later
         # reaper
         # xournalpp
