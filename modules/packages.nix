@@ -251,6 +251,7 @@ with lib; {
         logseq
         gajim
         thunderbird
+        bottles
         # Things to try later
         # reaper
         # xournalpp
