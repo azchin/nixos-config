@@ -9,7 +9,7 @@
     services.logind.settings.Login.HandlePowerKey = "ignore";
     myPackages = with pkgs-unstable; [
       furmark
-      unigine-superposition
+      # unigine-superposition # FIXME some hash mismatch
       pkgs-pwndbg.default
     ];
 
