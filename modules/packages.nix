@@ -114,6 +114,7 @@ with lib; {
         spice-gtk
         gnupg
         pcsclite
+        qrencode
         # vagrant
         gocryptfs
         distrobox
