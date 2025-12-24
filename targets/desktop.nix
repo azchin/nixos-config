@@ -24,18 +24,19 @@
     # rocminfo | grep gfx
     services.ollama = {
       enable = false;
-      acceleration = "rocm"; 
+      package = "ollama-rocm";
       rocmOverrideGfx = "11.0.0";
     };
 
-    services.pipewire.extraConfig.pipewire."92-low-latency" = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 256;
-        "default.clock.min-quantum" = 32;
-        "default.clock.max-quantum" = 1024;
-      };
-    };
+    # This was for osu
+    # services.pipewire.extraConfig.pipewire."92-low-latency" = {
+    #   "context.properties" = {
+    #     "default.clock.rate" = 48000;
+    #     "default.clock.quantum" = 256;
+    #     "default.clock.min-quantum" = 32;
+    #     "default.clock.max-quantum" = 1024;
+    #   };
+    # };
 
     systemd.services.ollama.environment = {
       OLLAMA_GPU_OVERHEAD = "1073741824";
