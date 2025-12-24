@@ -198,7 +198,8 @@ with lib; {
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0113|0114|0115|0116|0120|0121|0200|0402|0403|0406|0407|0410", TAG+="uaccess", GROUP="plugdev", MODE="0660"
       '';
 
-      programs.ssh.startAgent = true;
+      # FIXME conflicted with niri gnome's agent
+      # programs.ssh.startAgent = true;
       services.spice-vdagentd.enable = true;
       programs.mosh.enable = true;
 

@@ -16,12 +16,13 @@
 
   # Configure custom modules
   nixoneNetwork.enable = true;
-  myWireguard.enable = true;
+  myWireguard.enable = false;
   myWireguard.mode = "everything";
-  myWireguard.autostart = false;
+  myWireguard.autostart = true;
   mySSH.enable = true;
   myDesktop.enable = true;
   myHypr.enable = true;
+  myNiri.enable = true;
   myRiver.enable = false;
   myX11.dpi = 96;
   myCursorSize = 36;
