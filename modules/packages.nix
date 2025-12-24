@@ -23,6 +23,7 @@ with lib; {
         git
         git-lfs
         git-extras
+        cvs
         tmux
         ripgrep
         fd
@@ -34,6 +35,7 @@ with lib; {
         psmisc
         sshpass
         pass
+        universal-ctags
         zip
         unzip
         p7zip
@@ -401,6 +403,12 @@ with lib; {
           enable = true;
           wheelNeedsPassword = false;
         };
+      };
+
+      # tablet
+      hardware.opentabletdriver = {
+        enable = true;
+        daemon.enable = true;
       };
 
       # Configure network proxy if necessary
