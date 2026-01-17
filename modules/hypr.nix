@@ -15,7 +15,7 @@
 
     myPackages = with pkgs-unstable; [
       hyprcursor
-      hyprpaper
+      swaybg
       hypridle
     ];
   };

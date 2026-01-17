@@ -15,6 +15,9 @@
     # TODO lock, cursor, wallpaper, idle
     myPackages = with pkgs-unstable; [
       xwayland-satellite
+      swaybg
+      swaylock
+      swayidle
     ];
   };
 }

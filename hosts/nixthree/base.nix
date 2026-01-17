@@ -22,7 +22,7 @@
   mySSH.enable = true;
   myDesktop.enable = true;
   myHypr.enable = true;
-  myNiri.enable = true;
+  myNiri.enable = false;
   myRiver.enable = false;
   myX11.dpi = 96;
   myCursorSize = 36;
