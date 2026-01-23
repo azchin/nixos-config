@@ -43,6 +43,7 @@ with lib; {
         yq
         jq
         gdb
+        valgrind
         grpcurl
         (python3.withPackages (p: with p; [
           pip
