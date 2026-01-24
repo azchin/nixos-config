@@ -62,6 +62,7 @@ with lib; {
           python-lsp-server
           jinja2
           jsonschema
+          dbus-python
           # ruff
           # python-lsp-ruff
           # uv

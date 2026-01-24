@@ -25,7 +25,7 @@ with lib; {
       isNormalUser = true;
       uid = 1000;
       group = config.myUser.primary;
-      extraGroups = [ "wheel" "plugdev" ] ++ config.myUser.extraGroups; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "plugdev" "networkmanager" ] ++ config.myUser.extraGroups; # Enable ‘sudo’ for the user.
       shell = pkgs-unstable.zsh;
       packages = config.myPackages;
     };
