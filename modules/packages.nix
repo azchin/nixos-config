@@ -33,6 +33,7 @@ with lib; {
         bat
         zoxide
         gdu
+        duf
         psmisc
         sshpass
         pass
@@ -145,8 +146,8 @@ with lib; {
         httpie
         insomnia
         appimage-run
-        aider-chat
         claude-code
+        codex
         # Security tools
         dig
         tcpdump
@@ -256,11 +257,11 @@ with lib; {
         kooha
         easyeffects
         vscode
-        code-cursor
         logseq
         gajim
         thunderbird
         bottles
+        figma-linux
         # Things to try later
         # reaper
         # xournalpp
