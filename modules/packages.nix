@@ -5,11 +5,11 @@ with lib; {
     myGraphical.enable = mkEnableOption "myGraphical";
     myPackages = mkOption {
       type = listOf package;
-      description = "List of my packages";  
+      description = "List of my packages";
       default = [];
     };
   };
-  
+
   config = mkMerge [
     ({
       myPackages = with pkgs-unstable; [
@@ -147,6 +147,7 @@ with lib; {
         insomnia
         appimage-run
         claude-code
+        (callPackage ./copilot {})
         codex
         # Security tools
         dig
