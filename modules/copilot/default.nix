@@ -1,8 +1,8 @@
 { lib, stdenv, fetchurl, buildFHSEnv, glibc, writeShellScript }:
 
 let
-  version = "0.0.406";
-  sha256 = "0n0346k7kmf5a71kkys9nv0s33vcxj7x82z1zcpx60rr8h8yvw4k";
+  version = "1.0.2";
+  sha256 = "0iwhckacbx7wsc67y9fk7yig6bxk4iqxnwyrbb35ccq79z88f7sj";
 
   copilot-unwrapped = stdenv.mkDerivation {
     pname = "copilot-cli-unwrapped";

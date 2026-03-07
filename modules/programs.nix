@@ -59,10 +59,10 @@
       environment.systemPackages = with pkgs-unstable; [
         (lutris.override {
           extraPkgs = pkgs: [
-            wineWowPackages.stable
+            wineWow64Packages.stable
           ];
         })
-        wineWowPackages.stable
+        wineWow64Packages.stable
         r2modman
       ];
     })

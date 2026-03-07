@@ -16,7 +16,6 @@ with lib; {
         # CLI tools start here
         htop
         btop
-        neofetch
         tree
         bc
         file
@@ -36,6 +35,7 @@ with lib; {
         duf
         psmisc
         sshpass
+        sshfs
         pass
         universal-ctags
         zip
@@ -149,6 +149,7 @@ with lib; {
         claude-code
         (callPackage ./copilot {})
         codex
+        azure-cli
         # Security tools
         dig
         tcpdump
@@ -184,6 +185,8 @@ with lib; {
         dosfstools
         qmk
         ethtool
+        wootility
+        osu-lazer-bin
         # Libraries
         icu
       ];
@@ -201,6 +204,15 @@ with lib; {
       services.pcscd.enable = true;
       services.udev.extraRules = ''
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0113|0114|0115|0116|0120|0121|0200|0402|0403|0406|0407|0410", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+
+        # Wooting v2
+        SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", ATTRS{idProduct}=="1342", MODE:="0666"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", ATTRS{idProduct}=="1342", MODE:="0666"
+        SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", ATTRS{idProduct}=="134f", MODE:="0666"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", ATTRS{idProduct}=="134f", MODE:="0666"
+
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="4245", MODE="0664", TAG+="uaccess"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="418c", MODE="0664", TAG+="uaccess"
       '';
 
       # conflicts with niri gnome's agent
@@ -231,10 +243,12 @@ with lib; {
         guvcview
         nsxiv
         mpv
+        vlc
         cdparanoia
         transmission_4-gtk
         android-file-transfer
         brave
+        chromium
         signal-desktop
         audacity
         zotero
@@ -316,6 +330,8 @@ with lib; {
       };
   
       fonts.packages = with pkgs-unstable; [
+        corefonts
+        liberation_ttf
         dejavu_fonts
         noto-fonts-cjk-serif
         noto-fonts-cjk-sans

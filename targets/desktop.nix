@@ -8,7 +8,7 @@
   config = lib.mkIf config.myDesktop.enable {
     services.logind.settings.Login.HandlePowerKey = "ignore";
     myPackages = with pkgs-unstable; [
-      furmark
+      # furmark # FIXME gpumagick.com unavailable
       # unigine-superposition # FIXME some hash mismatch
       pkgs-pwndbg.default
     ];
@@ -23,10 +23,17 @@
     # https://github.com/ollama/ollama/blob/main/docs/gpu.md#amd-radeon
     # rocminfo | grep gfx
     services.ollama = {
-      enable = false;
-      package = "ollama-rocm";
+      enable = true;
+      package = pkgs-stable.ollama-rocm;
       rocmOverrideGfx = "11.0.0";
+      host = "0.0.0.0";
     };
+
+
+    hardware.bluetooth.enable = true;
+    services.blueman.enable = true;
+    hardware.logitech.wireless.enable = true;
+    hardware.logitech.wireless.enableGraphical = true; # for Solaar GUI
 
     # This was for osu
     # services.pipewire.extraConfig.pipewire."92-low-latency" = {

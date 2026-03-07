@@ -27,13 +27,13 @@
 
     myPackages = with pkgs-unstable; [
       emacs-gtk
-      xorg.xrdb
-      xorg.xset
-      xorg.xsetroot
-      xorg.xev
-      xorg.xmodmap
-      xorg.setxkbmap
-      xorg.xdpyinfo
+      xrdb # NOTE used to be xorg.xrdb
+      xset
+      xsetroot
+      xev
+      xmodmap
+      setxkbmap
+      xdpyinfo
       xdo
       xdotool
       lxrandr

@@ -22,7 +22,7 @@
       gsettings-qt
       gsettings-desktop-schemas
       dconf-editor
-      xorg.xrdb
+      xrdb
       pcmanfm
       lxmenu-data
       shared-mime-info
