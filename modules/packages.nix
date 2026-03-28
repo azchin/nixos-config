@@ -24,6 +24,7 @@ with lib; {
         git-extras
         cvs
         tmux
+        lsof
         ripgrep
         fd
         tealdeer
@@ -64,6 +65,7 @@ with lib; {
           jinja2
           jsonschema
           dbus-python
+          playwright
           # ruff
           # python-lsp-ruff
           # uv
@@ -102,7 +104,10 @@ with lib; {
         # Alternative is to use https://github.com/oxalica/rust-overlay
         rustup
         go
-        nodePackages_latest.nodejs
+        # nodePackages_latest.nodejs
+        nodejs_24 # FIXME need to update version? provides npx
+        hugo
+        js-beautify
         foundry
         # nix
         nh
@@ -112,6 +117,7 @@ with lib; {
         # libraries
         openssl
         # More utilities
+        marp-cli
         outils
         hyperfine
         qemu
@@ -133,13 +139,18 @@ with lib; {
         foremost
         inxi
         eza
+        yazi
         yt-dlp
+        gh
         ffmpeg-full
         imagemagick
         potrace
         hunspell
         hunspellDicts.en-us
         hunspellDicts.en-ca
+        aspell
+        aspellDicts.en
+        perl
         yubikey-manager
         yubioath-flutter
         nvimpager
@@ -150,6 +161,7 @@ with lib; {
         (callPackage ./copilot {})
         codex
         azure-cli
+        playwright-mcp
         # Security tools
         dig
         tcpdump
@@ -277,6 +289,7 @@ with lib; {
         thunderbird
         bottles
         figma-linux
+        penpot-desktop
         # Things to try later
         # reaper
         # xournalpp
