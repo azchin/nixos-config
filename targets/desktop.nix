@@ -24,7 +24,7 @@
     # rocminfo | grep gfx
     services.ollama = {
       enable = true;
-      package = pkgs-stable.ollama-rocm;
+      package = pkgs-unstable.ollama-rocm;
       rocmOverrideGfx = "11.0.0";
       host = "0.0.0.0";
     };
