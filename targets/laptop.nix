@@ -8,7 +8,7 @@
   config = lib.mkIf config.myLaptop.enable {
     myPackages = with pkgs-unstable; [
       cbatticon
-      light
+      brightnessctl
     ];
     myLogind.enable = true;
     services.upower.enable = true;

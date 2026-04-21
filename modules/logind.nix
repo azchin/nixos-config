@@ -11,6 +11,8 @@
       HandlePowerKeyLongPress = "poweroff";
       HandleLidSwitch = "suspend-then-hibernate";
     };
-    systemd.sleep.extraConfig = "HibernateDelaySec=20m";
+    systemd.sleep.settings.Sleep = {
+      HibernateDelaySec = "20m";
+    };
   };
 }
