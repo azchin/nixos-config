@@ -118,6 +118,7 @@ with lib; {
         openssl
         # More utilities
         marp-cli
+        mermaid-cli
         outils
         hyperfine
         qemu
