@@ -72,23 +72,15 @@
               {
                 inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware home-manager realtek-r8152-linux ida-pro-overlay; 
               };
-        in {
-          nixone = nixpkgs.lib.nixosSystem {
-            specialArgs = provideArgs favourite;
-            modules = [ ./hosts/nixone ] ++ extraModules;
+          hosts = {
+            nixone = {};
+            nixtwo = {};
+            nixthree = { extraSpecialArgs = { inherit disko; }; };
+            nixfour = { extraSpecialArgs = { inherit disko; }; };
           };
-          nixtwo = nixpkgs.lib.nixosSystem {
-            specialArgs = provideArgs favourite;
-            modules = [ ./hosts/nixtwo ] ++ extraModules;
-          };
-          nixthree = nixpkgs.lib.nixosSystem {
-            specialArgs = provideArgs favourite // { inherit disko; };
-            modules = [ ./hosts/nixthree ] ++ extraModules;
-          };
-          nixfour = nixpkgs.lib.nixosSystem {
-            specialArgs = provideArgs favourite // { inherit disko; };
-            modules = [ ./hosts/nixfour ] ++ extraModules;
-          };
-        };
+        in builtins.mapAttrs (name: cfg: nixpkgs.lib.nixosSystem {
+          specialArgs = provideArgs favourite // (cfg.extraSpecialArgs or {});
+          modules = [ ./hosts/${name} ] ++ extraModules;
+        }) hosts;
     };
 }
