@@ -18,8 +18,8 @@
   myWireguard.autostart = false;
   myLaptop.enable = true;
   myAwesomewm.enable = false;
-  myHypr.enable = false;
-  myOpenbox.enable = true;
+  myHypr.enable = true;
+  myOpenbox.enable = false;
   myX11.dpi = 138;
   myCursorSize = 36;
   myGaming.enable = false;
