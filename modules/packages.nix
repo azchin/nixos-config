@@ -395,10 +395,13 @@ with lib; {
         enable = true;
         extraPortals = with pkgs-unstable; [
           xdg-desktop-portal-gtk
+          xdg-desktop-portal-termfilechooser
         ];
-        config.common.default = "gtk";
+        config.common = {
+          default = "gtk";
+          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+        };
       };
-
       # TODO home manager?
       # dconf write /org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"
       programs.dconf = {
