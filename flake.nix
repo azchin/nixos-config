@@ -6,7 +6,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     pwndbg = {
       url = "github:pwndbg/pwndbg"; 
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko = {
