@@ -17,6 +17,7 @@
       hyprcursor
       swaybg
       hypridle
+      nwg-displays
     ];
   };
 }

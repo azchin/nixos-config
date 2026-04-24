@@ -10,6 +10,12 @@
       cbatticon
       brightnessctl
     ];
+
+    hardware.bluetooth.enable = true;
+    services.blueman.enable = true;
+    hardware.logitech.wireless.enable = true;
+    hardware.logitech.wireless.enableGraphical = true; # for Solaar GUI
+
     myLogind.enable = true;
     services.upower.enable = true;
     services.auto-cpufreq = {
