@@ -117,6 +117,7 @@ with lib; {
         # libraries
         openssl
         # More utilities
+        pandoc
         marp-cli
         mermaid-cli
         outils
@@ -163,6 +164,7 @@ with lib; {
         codex
         azure-cli
         playwright-mcp
+        google-cloud-sdk
         # Security tools
         dig
         tcpdump

@@ -15,6 +15,11 @@
     services.blueman.enable = true;
     hardware.logitech.wireless.enable = true;
     hardware.logitech.wireless.enableGraphical = true; # for Solaar GUI
+    services.fprintd.enable = true;
+    security.pam.services = {
+      ly.fprintAuth = true;
+      login.fprintAuth = true;
+    };
 
     myLogind.enable = true;
     services.upower.enable = true;
