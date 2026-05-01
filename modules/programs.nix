@@ -56,15 +56,17 @@
         capSysNice = true;
       };
       hardware.graphics.enable32Bit = true;
-      environment.systemPackages = with pkgs-unstable; [
-        (lutris.override {
-          extraPkgs = pkgs: [
-            wineWow64Packages.stable
-          ];
-        })
-        wineWow64Packages.stable
-        r2modman
-      ];
+      # NOTE Don't use for now
+      # environment.systemPackages = with pkgs-unstable; [
+      #   (lutris.override {
+      #     extraPkgs = pkgs: [
+      #       wineWow64Packages.stable
+      #     ];
+      #   })
+      #   wineWow64Packages.stable
+      #   r2modman
+      #   bottles
+      # ];
     })
     (lib.mkIf config.myFcitx.enable {
       i18n.inputMethod = {

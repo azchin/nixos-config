@@ -283,14 +283,13 @@ with lib; {
         kdePackages.kdenlive
         ghidra
         # stremio
-        discord-canary
+        # discord-canary # openssl deprecation
         kooha
         easyeffects
         vscode
         logseq
         gajim
         thunderbird
-        bottles
         figma-linux
         penpot-desktop
         # Things to try later
