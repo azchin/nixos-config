@@ -56,7 +56,7 @@ with lib; {
           numpy
           scipy
           pandas
-          pipx
+          # pipx # 1.8.0 test failures from packaging lib spec-normalization changes
           llm
           llm-ollama 
           llm-cmd
@@ -89,6 +89,7 @@ with lib; {
         gcc_multi
         glibc_multi
         cmake
+        libvterm
         gnumake
         ninja
         meson # apparently this is nice?
@@ -119,6 +120,7 @@ with lib; {
         # More utilities
         pandoc
         marp-cli
+        go-grip
         mermaid-cli
         outils
         hyperfine
@@ -160,6 +162,7 @@ with lib; {
         insomnia
         appimage-run
         claude-code
+        antigravity
         (callPackage ./copilot {})
         codex
         azure-cli
@@ -287,7 +290,7 @@ with lib; {
         kooha
         easyeffects
         vscode
-        logseq
+        # logseq
         gajim
         thunderbird
         figma-linux

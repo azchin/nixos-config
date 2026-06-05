@@ -29,6 +29,7 @@
       host = "0.0.0.0";
     };
 
+    services.open-webui.enable = true;
 
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;
