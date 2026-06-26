@@ -131,7 +131,7 @@ with lib; {
         gnupg
         pcsclite
         qrencode
-        # vagrant
+        vagrant
         gocryptfs
         distrobox
         expect

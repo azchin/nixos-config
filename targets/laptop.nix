@@ -17,7 +17,7 @@
     hardware.logitech.wireless.enableGraphical = true; # for Solaar GUI
     services.fprintd.enable = true;
     security.pam.services = {
-      ly.fprintAuth = true;
+      ly.fprintAuth = false; # unfortunately breaks kwallet unlock
       login.fprintAuth = true;
     };
 

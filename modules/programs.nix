@@ -7,6 +7,7 @@
     myFcitx.enable = lib.mkEnableOption "myFcitx";
     myDocker.enable = lib.mkEnableOption "myDocker";
     myVirtualbox.enable = lib.mkEnableOption "myVirtualbox";
+    myLibvirt.enable = lib.mkEnableOption "myLibvirt";
   };
   
   config = lib.mkMerge [
@@ -91,6 +92,11 @@
         storageDriver = "btrfs";
       };
       myUser.extraGroups = [ "docker" ];
+    })
+    (lib.mkIf config.myLibvirt.enable {
+      virtualisation.libvirtd.enable = true;
+      programs.virt-manager.enable = true;
+      myUser.extraGroups = [ "libvirtd" "kvm" ];
     })
   ];
 }
