@@ -162,8 +162,9 @@ with lib; {
         insomnia
         appimage-run
         claude-code
-        antigravity
-        (callPackage ./copilot {})
+        antigravity-ide
+        github-copilot-cli
+        zoom-us
         codex
         azure-cli
         playwright-mcp
