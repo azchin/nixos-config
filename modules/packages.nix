@@ -175,10 +175,7 @@ with lib; {
         wireshark
         nikto
         aflplusplus
-        # (callPackage ida-pro { # https://github.com/msanft/ida-pro-overlay
-        #   # Alternatively, fetch the installer through `fetchurl`, use a local path, etc.
-        #   runfile = /nix/store/85k32l846ybn4izf13vs58bvwjxaqqzz-ida-free-pc_91_x64linux.run;
-        # })
+        # IDA Free (Classroom) lives in ./ida.nix
         # System utilities
         mprime
         lm_sensors

@@ -3,6 +3,7 @@
 {
   imports = [
     ./packages.nix
+    ./ida.nix
     ./x11.nix
     ./display-manager.nix
     ./kwallet.nix
