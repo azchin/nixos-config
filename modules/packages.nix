@@ -120,6 +120,7 @@ with lib; {
         # More utilities
         pandoc
         marp-cli
+        typst
         go-grip
         mermaid-cli
         outils
@@ -236,6 +237,7 @@ with lib; {
       services.gnome.gcr-ssh-agent.enable = false;
       services.spice-vdagentd.enable = true;
       programs.mosh.enable = true;
+      services.tailscale.enable = true;
 
       # SBOM
       environment.etc."current-packages".text =

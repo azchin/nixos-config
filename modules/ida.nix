@@ -2,12 +2,13 @@
 #
 # The overlay hardcodes the paid IDA Pro installer as the package's `src`, so we
 # override it to point at the free classroom installer instead. Download the
-# installer from https://hex-rays.com/ida-free and add it to the store first:
+# installer from https://hex-rays.com/ida-free, then:
 #
-#   nix-store --add-fixed sha256 ida-classroom-free_94_x64linux.run
+#   ./update-ida.sh <path-to-runfile>
 #
-# To bump versions, drop in the new runfile and update `version`/`sha256` below
-# (`nix hash file --type sha256 --base16 <runfile>`).
+# which adds it to the store and rewrites the `name`/`version`/`sha256` below.
+# Hex-Rays re-publishes builds under the same filename, so expect the hash to
+# drift even when the version does not.
 { config, lib, pkgs-unstable, ida-pro-overlay, ... }:
 
 let
@@ -97,7 +98,7 @@ with lib; {
         src = pkgs-unstable.requireFile {
           name = "ida-classroom-free_94_x64linux.run";
           url = "https://hex-rays.com/ida-free";
-          sha256 = "1c9be1ba470a576b6e58b6d8c19532264595fe5a6169235b18c9d1702c49a454";
+          sha256 = "ed49c35fec273fc8f4154632f2b2bd314f0375c20983f0f41d3c19d818085373";
         };
 
         # The overlay's desktop entry is labelled for IDA Pro.
