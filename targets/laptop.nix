@@ -11,10 +11,6 @@
       brightnessctl
     ];
 
-    hardware.bluetooth.enable = true;
-    services.blueman.enable = true;
-    hardware.logitech.wireless.enable = true;
-    hardware.logitech.wireless.enableGraphical = true; # for Solaar GUI
     services.fprintd.enable = true;
     security.pam.services = {
       # The ly module ships a pam stack that just substacks/includes `login`,

@@ -269,7 +269,7 @@ with lib; {
         chromium
         signal-desktop
         audacity
-        zotero
+        pkgs-stable.zotero # FIXME
         slack
         spotify
         pavucontrol
@@ -311,12 +311,17 @@ with lib; {
       programs.wireshark.enable = true;
       myUser.extraGroups = [ "wireshark" ];
 
+      hardware.bluetooth.enable = true;
+      services.blueman.enable = true;
+      hardware.logitech.wireless.enable = true;
+      programs.solaar.enable = true;
+      
       programs.obs-studio = {
         enable = true;
-        plugins = with pkgs-unstable.obs-studio-plugins; [
-          obs-composite-blur
-          obs-backgroundremoval
-        ];
+        # plugins = with pkgs-unstable.obs-studio-plugins; [
+        #   obs-composite-blur
+        #   obs-backgroundremoval
+        # ];
       };
     
       services.psd.enable = true;

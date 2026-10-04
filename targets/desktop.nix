@@ -31,11 +31,6 @@
 
     services.open-webui.enable = true;
 
-    hardware.bluetooth.enable = true;
-    services.blueman.enable = true;
-    hardware.logitech.wireless.enable = true;
-    hardware.logitech.wireless.enableGraphical = true; # for Solaar GUI
-
     # This was for osu
     # services.pipewire.extraConfig.pipewire."92-low-latency" = {
     #   "context.properties" = {

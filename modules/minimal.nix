@@ -12,7 +12,7 @@
   
   config = lib.mkIf config.myMinimal.enable {
     myPackages = with pkgs-unstable; [
-      arc-theme
+      pkgs-stable.arc-theme # FIXME
       papirus-icon-theme
       capitaine-cursors
       kdePackages.breeze

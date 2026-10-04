@@ -12,7 +12,7 @@
     myPackages = with pkgs-unstable; [
       wl-clipboard
       rofi
-      emacs30-pgtk
+      emacs-pgtk
       pkgs-stable.waybar # FIXME https://github.com/Alexays/Waybar/issues/4231
       slurp
       grim
