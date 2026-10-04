@@ -273,7 +273,7 @@ with lib; {
         slack
         spotify
         pavucontrol
-        libreoffice-fresh
+        libreoffice
         kdePackages.okular
         digikam
         krita
