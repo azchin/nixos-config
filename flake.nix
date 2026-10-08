@@ -28,9 +28,13 @@
       url = "github:msanft/ida-pro-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    waybar = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko, home-manager, nur, realtek-r8152-linux, ida-pro-overlay }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, nixos-hardware, disko, home-manager, nur, realtek-r8152-linux, ida-pro-overlay, waybar }@inputs:
     # https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
     # https://nix.dev/manual/nix/2.18/language/constructs
     # TODO https://flake.parts/
@@ -67,9 +71,10 @@
                 config.allowUnfree = true;
               };
               pkgs-pwndbg = pwndbg.packages.${system};
+              pkgs-waybar = waybar.packages.${system};
             in
               {
-                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg nixos-hardware home-manager realtek-r8152-linux ida-pro-overlay; 
+                inherit inputs pkgs-unstable pkgs-stable pkgs-pwndbg pkgs-waybar nixos-hardware home-manager realtek-r8152-linux ida-pro-overlay; 
               };
           hosts = {
             nixone = {};

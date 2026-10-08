@@ -1,4 +1,4 @@
-{ config, lib, pkgs-unstable, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, pkgs-waybar, ... }:
 
 {
   options = {
@@ -13,10 +13,10 @@
       wl-clipboard
       rofi
       emacs-pgtk
-      waybar
       slurp
       grim
       nwg-look
+      pkgs-waybar.waybar # FIXME once new release hits unstable
     ];
   };
 }
