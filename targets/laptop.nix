@@ -1,4 +1,4 @@
-{ config, lib, pkgs-unstable, pkgs-stable, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, pkgs-pwndbg, ... }:
 
 {
   options = {
@@ -9,6 +9,7 @@
     myPackages = with pkgs-unstable; [
       cbatticon
       brightnessctl
+      pkgs-pwndbg.default
     ];
 
     services.fprintd.enable = true;

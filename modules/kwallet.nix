@@ -23,22 +23,36 @@ in
     # rule set. Setting them for ly is a silent no-op, so spell the rules out.
     # They sort after ly's own login rules, since pam_kwallet needs the password
     # that the login substack has already collected.
+    # If ly is forced back onto the default rules (targets/laptop.nix does this),
+    # the login rules are disabled and the kwallet option takes over instead.
+    # Gating on rule `enable` rather than mkIf avoids infinite recursion.
     # kwallet https://github.com/NixOS/nixpkgs/issues/258296
-    (lib.mkIf (config.myDisplayManager == "ly") {
-      security.pam.services.ly.rules = {
-        auth.kwallet = {
-          order = config.security.pam.services.ly.rules.auth.login.order + 10;
-          control = "optional";
-          modulePath = kwalletPam;
+    (lib.mkIf (config.myDisplayManager == "ly") (let
+      ly = config.security.pam.services.ly;
+    in {
+      security.pam.services.ly = {
+        kwallet = {
+          enable = true;
+          package = pkgs-unstable.kdePackages.kwallet-pam;
+          forceRun = true;
         };
-        session.kwallet = {
-          order = config.security.pam.services.ly.rules.session.login.order + 10;
-          control = "optional";
-          modulePath = kwalletPam;
-          settings.force_run = true;
+        rules = {
+          auth.kwallet-ly = {
+            enable = !ly.useDefaultRules;
+            order = ly.rules.auth.login.order + 10;
+            control = "optional";
+            modulePath = kwalletPam;
+          };
+          session.kwallet-ly = {
+            enable = !ly.useDefaultRules;
+            order = ly.rules.session.login.order + 10;
+            control = "optional";
+            modulePath = kwalletPam;
+            settings.force_run = true;
+          };
         };
       };
-    })
+    }))
 
     (lib.mkIf (config.myDisplayManager != "ly") {
       security.pam.services.${config.myDisplayManager}.kwallet = {

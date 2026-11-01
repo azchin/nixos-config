@@ -47,6 +47,7 @@ with lib; {
         gdb
         valgrind
         grpcurl
+        patchelf
         (python3.withPackages (p: with p; [
           pip
           virtualenv
@@ -88,6 +89,7 @@ with lib; {
         pkgsi686Linux.glibc.dev
         gcc_multi
         glibc_multi
+        clang
         cmake
         libvterm
         gnumake
