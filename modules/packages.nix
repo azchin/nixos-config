@@ -111,7 +111,6 @@ with lib; {
         nodejs_24 # FIXME need to update version? provides npx
         hugo
         js-beautify
-        foundry
         # nix
         nh
         nix-output-monitor
@@ -134,7 +133,7 @@ with lib; {
         gnupg
         pcsclite
         qrencode
-        vagrant
+        # vagrant
         gocryptfs
         distrobox
         expect
@@ -169,7 +168,7 @@ with lib; {
         github-copilot-cli
         zoom-us
         codex
-        azure-cli
+        # azure-cli
         playwright-mcp
         google-cloud-sdk
         # Security tools
@@ -296,7 +295,7 @@ with lib; {
         gajim
         thunderbird
         figma-linux
-        penpot-desktop
+        # penpot-desktop
         # Things to try later
         # reaper
         # xournalpp

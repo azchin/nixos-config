@@ -9,7 +9,7 @@
 # which adds it to the store and rewrites the `name`/`version`/`sha256` below.
 # Hex-Rays re-publishes builds under the same filename, so expect the hash to
 # drift even when the version does not.
-{ config, lib, pkgs-unstable, ida-pro-overlay, ... }:
+{ config, lib, pkgs-unstable, pkgs-stable, ida-pro-overlay, ... }:
 
 let
   # Mirrors the overlay's own `pythonForIDA`, so this resolves to the very same
@@ -94,6 +94,11 @@ with lib; {
       myIda.package = pkgs-unstable.ida-pro.overrideAttrs (old: {
         pname = "ida-free-classroom";
         version = "9.4";
+
+        # patchelf 0.19.2 (unstable, Nov 2026) aborts on opt/tools/tilib/tilib
+        # with "Assertion `splitIndex == -1' failed"; stable's 0.15.2 is fine.
+        # autoPatchelfHook calls whichever patchelf is first on PATH.
+        nativeBuildInputs = [ pkgs-stable.patchelf ] ++ (old.nativeBuildInputs or [ ]);
 
         src = pkgs-unstable.requireFile {
           name = "ida-classroom-free_94_x64linux.run";
