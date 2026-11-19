@@ -10,6 +10,7 @@
       cbatticon
       brightnessctl
       pkgs-pwndbg.default
+      powertop
     ];
 
     services.fprintd.enable = true;
