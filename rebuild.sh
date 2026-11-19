@@ -23,6 +23,7 @@ git add private
 case $cmd in
     upgrade)
         echo "Upgrading!"
+        nix-store --add-fixed sha256 private/ida-classroom-free_94_x64linux.run
         nix flake update
         nh os switch . \
             || (echo "nixos-rebuild failed, continue? [y/N]"; read answer; [ "$answer" = "y" ]) \
